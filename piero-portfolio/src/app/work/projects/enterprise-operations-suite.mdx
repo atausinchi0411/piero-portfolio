@@ -1,0 +1,44 @@
+---
+title: "Enterprise Operations Suite"
+publishedAt: "2024-06-01"
+summary: "A suite of 4 interconnected web applications built to digitize and optimize operations in an international underground mining facility — from shift handoffs to AI-assisted analysis."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Piero"
+    role: "Full-Stack Developer & Architect"
+    avatar: "/images/avatar.jpg"
+---
+
+## Overview
+
+Designed and built a complete ecosystem of 4 enterprise web applications to replace paper-based processes in a major mining operation's maintenance department. Each app addresses a specific operational need while sharing a unified authentication system and deployment infrastructure.
+
+## The Four Applications
+
+- **ShiftTrack**: Digital shift handoff system. Operators log events, issues, and observations during their shift, creating a searchable history that eliminates information loss between shifts.
+- **RoutineMaster**: Routine and checklist management. Standardized inspection routines with digital completion tracking, ensuring nothing falls through the cracks.
+- **NexoIBP**: Operational dashboard integrating data from multiple sources into actionable views for maintenance planning and resource allocation.
+- **Nexus**: AI-assisted analysis tool that leverages Claude AI to help engineers interpret operational data, generate reports, and make data-driven maintenance decisions.
+
+## Technical Architecture
+
+All four applications share a common stack: **React + Vite** front-end, **Node.js** API layer, and **SQL Server** database. They run on a Windows Server environment with **IIS** reverse proxy and **PM2** for process management.
+
+Key technical achievements:
+
+- **Windows Authentication SSO**: Seamless single sign-on using the existing Active Directory infrastructure — no extra passwords for operators.
+- **Auto-update system**: A custom script that detects entity changes across updates and automatically generates SQL migration scripts, enabling zero-downtime deployments.
+- **Offline-resilient design**: Critical features work even with intermittent network connectivity, common in underground mining environments.
+
+## Impact
+
+Replaced entirely manual, paper-based workflows with digital systems that provide real-time visibility into operations. The shift handoff process alone went from an error-prone verbal exchange to a documented, searchable digital record.
+
+## Technologies Used
+
+- **React + Vite** — Fast, modular front-end
+- **Node.js** — API and business logic
+- **SQL Server** — Relational database
+- **IIS + PM2** — Production deployment
+- **Claude AI** — Integrated into Nexus for intelligent analysis

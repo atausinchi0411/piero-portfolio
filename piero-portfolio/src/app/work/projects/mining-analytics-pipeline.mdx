@@ -1,0 +1,39 @@
+---
+title: "Mining Analytics Pipeline"
+publishedAt: "2024-03-15"
+summary: "Automated Python pipeline that cross-references SAP data to detect equipment misuse, calibrate failure scoring, and generate weekly cost-per-ton reports across a 13+ equipment fleet."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Piero"
+    role: "Data Engineer & Analyst"
+    avatar: "/images/avatar.jpg"
+---
+
+## Overview
+
+Built an automated data analytics pipeline that processes weekly equipment performance data from SAP, cross-references it with operational records, and produces calibrated scoring reports that help maintenance engineers prioritize interventions and detect equipment misuse patterns.
+
+## How It Works
+
+1. **Data extraction**: Weekly automated pull from SAP containing maintenance records, work orders, and equipment telemetry.
+2. **Cross-referencing**: The pipeline matches equipment events against operational context — shift logs, environmental conditions, and historical baselines — to distinguish genuine failures from operator misuse.
+3. **Calibrated scoring**: A custom scoring model weights each event type by severity, frequency, and cost impact, producing a normalized score per piece of equipment.
+4. **Report generation**: Automated Excel reports with cost-per-ton breakdowns, trend visualizations, and anomaly flags for the entire fleet.
+
+## Technical Details
+
+- **Python + pandas**: Core data processing and transformation logic
+- **SAP integration**: Structured data extraction from SAP maintenance modules
+- **Excel/VBA**: Output reports formatted for management consumption, with embedded charts and conditional formatting
+- **Scoring algorithm**: Custom weighted model that accounts for equipment type, operational context, and historical failure rates
+
+## Fleet Coverage
+
+The pipeline monitors **13+ pieces of heavy mining equipment**, each with different maintenance profiles, failure modes, and cost structures. The scoring model is calibrated per equipment type to ensure fair comparison.
+
+## Impact
+
+- Early detection of misuse patterns that were previously invisible in raw SAP data
+- Quantified cost-per-ton metrics that enabled evidence-based maintenance budget allocation
+- Weekly automated reports replaced a manual process that previously took a full day of engineering time

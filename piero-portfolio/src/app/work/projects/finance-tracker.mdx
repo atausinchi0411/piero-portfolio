@@ -1,0 +1,51 @@
+---
+title: "Finance Tracker"
+publishedAt: "2024-01-15"
+summary: "A personal finance web app built through 5 iterative versions — single-file HTML architecture with CRUD operations, drag-to-reorder, and automatic data migration between versions."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Piero"
+    role: "Developer"
+    avatar: "/images/avatar.jpg"
+---
+
+## Overview
+
+A personal finance tracker built as a single HTML file — no frameworks, no build tools, no server. Five major versions, each one refining the UX and adding features while maintaining backward compatibility through automatic data migration.
+
+## Evolution Through 5 Versions
+
+- **V1**: Basic income/expense tracking with manual categorization
+- **V2**: Added category management and monthly summaries
+- **V3**: Introduced drag-to-reorder for transactions and visual improvements
+- **V4**: Budget targets per category with progress indicators
+- **V5**: Complete UI overhaul, improved data visualization, and automatic migration from any previous version
+
+## Technical Approach
+
+The entire application lives in a **single HTML file** — all CSS, JavaScript, and logic are self-contained. This constraint forced creative solutions:
+
+- **localStorage persistence**: All data stays in the browser, zero server dependency
+- **Auto-migration**: Opening V5 with V1 data automatically transforms the schema through each intermediate version — no data loss, no manual export/import
+- **Drag-to-reorder**: Custom drag implementation without external libraries
+- **CRUD operations**: Full create, read, update, delete for transactions, categories, and budgets
+
+## Design Philosophy
+
+The single-file constraint wasn't a limitation — it was a feature. The app can be:
+
+- Hosted anywhere (dropped onto Netlify, opened locally, emailed to someone)
+- Backed up by copying one file
+- Forked by duplicating one file
+- Understood by reading one file
+
+## Deployment
+
+Hosted on **Netlify** with zero configuration — just drag and drop the HTML file.
+
+## Technologies Used
+
+- **HTML/CSS/JavaScript** — Everything in one file
+- **localStorage** — Client-side data persistence
+- **Netlify** — Static hosting
