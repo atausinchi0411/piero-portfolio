@@ -1,0 +1,13 @@
+# Git normaliza saltos de línea en lo que cree que es texto. En un PDF o en un
+# PNG eso no es una normalización: es corrupción. En un clon nuevo el archivo
+# sale roto y no se nota hasta que alguien intenta abrirlo.
+* text=auto
+
+*.pdf binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.webp binary
+*.ico binary
+*.woff binary
+*.woff2 binary
