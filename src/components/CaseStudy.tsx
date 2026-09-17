@@ -54,7 +54,13 @@ export function CaseStudy({ project }: { project: Project }) {
         </div>
       </dl>
 
-      <Cover cover={project.cover} title={project.title} ratio="wide" priority />
+      <Cover
+        cover={project.cover}
+        title={project.title}
+        ratio="wide"
+        sizes="(max-width: 1180px) calc(100vw - 40px), 1140px"
+        priority
+      />
 
       {project.privateNote && (
         <p className={s.note}>

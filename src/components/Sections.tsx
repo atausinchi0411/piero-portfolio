@@ -193,7 +193,8 @@ export function AboutSection() {
                 alt={`${person.name} ${person.lastName}`}
                 width={520}
                 height={650}
-                sizes="(max-width: 860px) 100vw, 340px"
+                sizes="(max-width: 860px) calc(100vw - 40px), 320px"
+                quality={90}
                 className={s.aboutPhoto}
               />
             )}

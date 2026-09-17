@@ -42,7 +42,8 @@ export function Hero() {
               src={person.photo}
               alt={`${person.name} ${person.lastName}`}
               fill
-              sizes="(max-width: 860px) 96px, 240px"
+              sizes="(max-width: 860px) 96px, 200px"
+              quality={90}
               className={s.portraitImg}
               priority
             />

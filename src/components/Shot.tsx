@@ -20,7 +20,8 @@ export function Shot({ src, alt, chrome, ratio = "wide", priority = false }: Pro
         src={src}
         alt={alt}
         fill
-        sizes="(max-width: 760px) 100vw, 900px"
+        sizes="(max-width: 1180px) calc(100vw - 40px), 1140px"
+        quality={92}
         className={s.img}
         priority={priority}
       />

@@ -26,30 +26,24 @@ export const person = {
 };
 
 export const hero = {
-  // El titular anterior decía "el software que lo predice". NexoIBP calcula
-  // disponibilidad, MTTF y MTTR y clasifica máquinas: eso es análisis, no
-  // predicción. Un titular que promete más de lo que el trabajo sostiene se
-  // cae en la primera pregunta de una entrevista.
-  // Corto a propósito: va en serif a 60px, y trece palabras ahí son un muro.
-  // El titular solo tiene que hacer que sigas leyendo. Los números los da la
-  // tira de abajo, la persona la da la foto, y el software lo da el subtítulo.
-  // Nada de presumir aquí: de eso ya se encargan los proyectos.
-  // Dos titulares anteriores fallaron por lo mismo: "el software que usa mi
-  // departamento lo escribí yo" y "herramientas que la gente usa de verdad"
-  // discuten con un escéptico que no está en la sala. Un titular que se
-  // defiende suena inseguro, por muy cierto que sea lo que dice.
-  //
-  // Este no reclama nada sobre él: dice qué gana la persona del otro lado.
-  // Sale del caso del cierre masivo en SAP — "has perdido una tarde en hacer
-  // clics" — así que hay un proyecto en esta misma página que lo respalda.
-  // Va en serif a 60px: dos líneas, no más.
+  // Historial de esta frase, para que nadie repita los errores:
+  //  - "el software que lo predice" prometía predicción. NexoIBP calcula
+  //    disponibilidad, MTTF y MTTR y clasifica máquinas: eso es análisis.
+  //  - "el software que usa mi departamento lo escribí yo" y "herramientas
+  //    que la gente usa de verdad" discutían con un escéptico que no está en
+  //    la sala. Un titular que se defiende suena inseguro.
+  // Va en serif a 60px: dos líneas como mucho.
   headline: {
-    en: "I give back the afternoons manual work eats.",
-    es: "Devuelvo las tardes que se come el trabajo manual.",
+    en: "Simple tools for complex problems, built from the inside.",
+    es: "Herramientas sencillas para problemas complejos, desde dentro.",
   } satisfies L,
+  // Decir que no viene de programación es honesto y le protege en una
+  // entrevista. Se dice con las palabras exactas y sin el término "vibe
+  // coder", que en el sector se lee como "entrega código que no entiende" —
+  // y eso descontaría NexoIBP entero, que es el activo más fuerte de aquí.
   sub: {
-    en: "Reliability engineer at an underground mine near Barcelona. Almost everything here came from looking at a process that already worked and taking out what did not need to be there.",
-    es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. Casi todo lo que hay aquí salió de mirar un proceso que ya funcionaba y quitarle lo que le sobraba.",
+    en: "Reliability engineer at an underground mine near Barcelona. I did not come from software: I learned by building what my department needed, with AI as the tool and the problem in front of me.",
+    es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. No vengo de la programación: aprendí construyendo lo que mi departamento necesitaba, con la IA como herramienta y el problema delante.",
   } satisfies L,
 };
 

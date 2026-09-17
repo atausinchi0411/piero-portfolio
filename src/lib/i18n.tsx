@@ -67,7 +67,7 @@ export const ui = {
   contact: { en: "Contact", es: "Contacto" },
   experience: { en: "Experience", es: "Experiencia" },
   skills: { en: "Skills", es: "Habilidades" },
-  selectedWork: { en: "Selected work", es: "Proyectos seleccionados" },
+  selectedWork: { en: "Main projects", es: "Principales proyectos" },
   allWork: { en: "Everything else", es: "Todo lo demás" },
   readCase: { en: "Read the case", es: "Ver el caso" },
   backToWork: { en: "All work", es: "Todos los proyectos" },

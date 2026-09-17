@@ -70,7 +70,8 @@ export function Sequence({ frames, chrome, interval = 3000 }: Props) {
               src={frame.src}
               alt={t(frame.label)}
               fill
-              sizes="(max-width: 860px) 100vw, 820px"
+              sizes="(max-width: 1180px) calc(100vw - 40px), 1140px"
+              quality={92}
               className={s.img}
               data-on={i === activo}
               priority={i === 0}

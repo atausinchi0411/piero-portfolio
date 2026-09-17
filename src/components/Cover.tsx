@@ -13,6 +13,15 @@ type Props = {
   ratio?: "card" | "wide";
   fill?: boolean;
   priority?: boolean;
+  /**
+   * Ancho real del hueco donde se pinta, en la sintaxis de `sizes`.
+   *
+   * No es opcional por pereza: si esto miente, el navegador elige del srcset
+   * un archivo más pequeño del que necesita y la captura sale borrosa en
+   * cuanto hay una pantalla de densidad 2. Cada sitio que use <Cover> tiene
+   * que pasar su medida.
+   */
+  sizes: string;
 };
 
 /* --------------------------------------------------------------- flow ---
@@ -128,7 +137,14 @@ function Audio({ title, duration }: { title: string; duration?: string }) {
 
 /* ------------------------------------------------------------ dispatch --- */
 
-export function Cover({ cover, title, ratio = "card", fill = false, priority = false }: Props) {
+export function Cover({
+  cover,
+  title,
+  ratio = "card",
+  fill = false,
+  priority = false,
+  sizes,
+}: Props) {
   const { t } = useLocale();
 
   if (!cover) {
@@ -148,7 +164,8 @@ export function Cover({ cover, title, ratio = "card", fill = false, priority = f
           src={cover.src}
           alt={title}
           fill
-          sizes="(max-width: 760px) 100vw, (max-width: 1100px) 50vw, 560px"
+          sizes={sizes}
+          quality={92}
           className={s.img}
           priority={priority}
         />

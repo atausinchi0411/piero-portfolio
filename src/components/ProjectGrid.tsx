@@ -65,7 +65,15 @@ export function LeadProject({ project }: { project: Project }) {
         </div>
 
         <div className={s.leadCover}>
-          <Cover cover={project.cover} title={project.title} fill priority />
+          {/* 1140 de ancho máximo − 40 de gutter − 52 de padding − 34 de gap,
+              por la fracción 1.18 de 2 → unos 620px. */}
+          <Cover
+            cover={project.cover}
+            title={project.title}
+            sizes="(max-width: 900px) calc(100vw - 76px), 620px"
+            fill
+            priority
+          />
         </div>
       </Link>
     </Reveal>
@@ -80,7 +88,12 @@ function Card({ project, n, delay }: { project: Project; n: number; delay: numbe
   return (
     <Reveal delay={delay}>
       <Link href={`/work/${project.slug}`} className={s.card}>
-        <Cover cover={project.cover} title={project.title} />
+        {/* Dos columnas de 1100 con 22 de gap, menos 30 de padding → 520px. */}
+        <Cover
+          cover={project.cover}
+          title={project.title}
+          sizes="(max-width: 620px) calc(100vw - 70px), (max-width: 1180px) calc(50vw - 60px), 520px"
+        />
 
         <div className={s.meta}>
           <p className={s.leadTop}>
