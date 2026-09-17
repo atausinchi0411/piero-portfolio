@@ -107,4 +107,5 @@ export const ui = {
   cvPending: { en: "CV on request", es: "CV a petición" },
   downloadCv: { en: "Download CV", es: "Descargar CV" },
   themeToggle: { en: "Toggle theme", es: "Cambiar tema" },
+  sectionsNav: { en: "Sections", es: "Secciones" },
 } satisfies Record<string, L>;

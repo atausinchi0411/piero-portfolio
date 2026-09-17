@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { person } from "@/content/site";
 import { ui, useLocale } from "@/lib/i18n";
+import { SECTIONS, useActiveSection } from "@/lib/useActiveSection";
 import s from "./Header.module.css";
 
 function ThemeToggle() {
@@ -72,51 +73,6 @@ function LocaleToggle() {
   );
 }
 
-/**
- * Sección visible ahora mismo.
- *
- * Marca la que cruza la línea imaginaria del tercio superior de la pantalla,
- * que es donde la vista está leyendo, no la que más área ocupa. Con secciones
- * de alturas muy distintas —Experiencia es enorme— el área engaña.
- */
-function useActiveSection(ids: string[]) {
-  const [active, setActive] = useState<string | null>(null);
-
-  useEffect(() => {
-    const nodes = ids
-      .map((id) => document.getElementById(id))
-      .filter((n): n is HTMLElement => n !== null);
-    if (nodes.length === 0) return;
-
-    let frame = 0;
-    const measure = () => {
-      frame = 0;
-      const line = window.innerHeight * 0.33;
-      let current: string | null = null;
-      for (const node of nodes) {
-        if (node.getBoundingClientRect().top <= line) current = node.id;
-      }
-      setActive(current);
-    };
-
-    const onScroll = () => {
-      if (frame) return;
-      frame = window.requestAnimationFrame(measure);
-    };
-
-    measure();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("resize", onScroll);
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("resize", onScroll);
-      if (frame) window.cancelAnimationFrame(frame);
-    };
-  }, [ids]);
-
-  return active;
-}
-
 /** Cuánto del documento queda leído. Da sensación de longitud sin un índice. */
 function ReadingProgress() {
   const [progress, setProgress] = useState(0);
@@ -152,11 +108,9 @@ function ReadingProgress() {
   );
 }
 
-const SECTIONS = ["work", "experience", "skills", "about", "contact"] as const;
-
 export function Header() {
   const { t } = useLocale();
-  const active = useActiveSection(SECTIONS as unknown as string[]);
+  const active = useActiveSection(SECTIONS);
 
   const nav = [
     { id: "work", label: t(ui.work) },

@@ -1,0 +1,112 @@
+/* ==========================================================================
+   Índice lateral
+   Vive en el margen libre que deja el contenedor de 1140px. Por debajo de
+   1240px ese margen no existe, así que desaparece — la cabecera ya marca la
+   sección activa y es suficiente.
+   ========================================================================== */
+
+.rail {
+  position: fixed;
+  right: max(16px, calc((100vw - var(--maxw)) / 2 - 116px));
+  top: 50%;
+  z-index: 40;
+  transform: translateY(-50%);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease, visibility .4s;
+}
+
+.rail[data-visible] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.list {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* La línea que une los puntos, por detrás de ellos. */
+.list::before {
+  content: "";
+  position: absolute;
+  left: 4.5px;
+  top: 14px;
+  bottom: 14px;
+  width: 1px;
+  background: var(--line-strong);
+}
+
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 5px 0;
+  color: var(--ink-3);
+  font-size: 12.5px;
+  line-height: 1.2;
+  white-space: nowrap;
+  transition: color .18s ease;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  flex: none;
+  border-radius: 50%;
+  border: 1.5px solid var(--line-strong);
+  background: var(--bg);
+  transition: border-color .18s ease, background .18s ease, transform .18s ease;
+}
+
+.item:hover { color: var(--ink); }
+.item:hover .dot { border-color: var(--ink-3); }
+
+.item[data-active] {
+  color: var(--signal);
+  font-weight: 560;
+}
+
+.item[data-active] .dot {
+  border-color: var(--signal);
+  background: var(--signal);
+  transform: scale(1.15);
+}
+
+/* Umbral calculado, no elegido a ojo: el rail mide ~100px y necesita 16 de
+   aire al borde y 12 al contenido, así que hacen falta (vw − 1140) / 2 ≥ 128,
+   es decir 1396px. Por debajo, solo puntos y el nombre al pasar. */
+@media (max-width: 1400px) {
+  .label {
+    position: absolute;
+    right: calc(100% + 12px);
+    padding: 4px 9px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+    opacity: 0;
+    transform: translateX(4px);
+    pointer-events: none;
+    transition: opacity .16s ease, transform .16s ease;
+  }
+  .item:hover .label,
+  .item:focus-visible .label {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (max-width: 1240px) {
+  .rail { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rail, .item, .dot, .label { transition: none; }
+}

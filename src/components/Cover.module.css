@@ -268,3 +268,29 @@
   text-transform: uppercase;
   color: var(--ink-3);
 }
+
+/* --------------------------------------------------------------------------
+   Portadas estrechas
+   Al pasar Kuestiona a destacados, la fila de tarjetas va a tres columnas y
+   el lienzo baja de ~510px a ~320px. A ese ancho el diagrama de flujo parte
+   las etiquetas por la mitad. Aquí se aprieta: fuera el número de orden, que
+   es lo primero que sobra, y menos aire.
+   -------------------------------------------------------------------------- */
+
+@container (max-width: 380px) {
+  .flow {
+    grid-template-columns: minmax(0, 1.25fr) 11% minmax(0, 1fr);
+    padding: 5cqi 4cqi;
+    gap: 0 1.5cqi;
+  }
+  .nodeIndex { display: none; }
+  .node { padding: 2cqi; gap: 0; }
+  .nodeText { font-size: clamp(8px, 3.4cqi, 12px); -webkit-line-clamp: 3; }
+  .flowIn { gap: 2.2cqi; }
+  .flowOut { padding: 3cqi; }
+  .outText { font-size: clamp(8px, 3.4cqi, 12px); }
+
+  /* En steps sobran los pasos intermedios: se entiende con los extremos. */
+  .steps { padding: 5cqi 4cqi; gap: 2.4cqi; }
+  .stepRow { gap: 1.2cqi; }
+}

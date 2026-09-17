@@ -538,6 +538,7 @@ export const projects: Project[] = [
     slug: "kuestiona-offline",
     title: "Kuestiona Offline",
     year: "2025",
+    featured: true,
     summary: {
       en: "Saves a whole online course for offline study in about five minutes, built for classmates who are not comfortable with computers.",
       es: "Guarda un curso online entero para estudiar sin internet en unos cinco minutos, hecho para compañeros que no se manejan con ordenadores.",
