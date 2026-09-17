@@ -30,13 +30,21 @@ export const hero = {
   // disponibilidad, MTTF y MTTR y clasifica máquinas: eso es análisis, no
   // predicción. Un titular que promete más de lo que el trabajo sostiene se
   // cae en la primera pregunta de una entrevista.
+  // Corto a propósito: va en serif a 60px, y trece palabras ahí son un muro.
+  // El titular solo tiene que hacer que sigas leyendo. Los números los da la
+  // tira de abajo, la persona la da la foto, y el software lo da el subtítulo.
+  // Nada de presumir aquí: de eso ya se encargan los proyectos.
+  // Corto a propósito: va en serif a 60px, y trece palabras ahí son un muro.
+  // "de verdad" es la palabra que carga la frase: casi toda herramienta
+  // interna que se construye acaba abandonada. Las de aquí no, y eso se puede
+  // demostrar — por eso la frase aguanta una entrevista.
   headline: {
-    en: "I am a reliability engineer, and I wrote the software my department runs on.",
-    es: "Soy ingeniero de fiabilidad. El software que usa mi departamento lo escribí yo.",
+    en: "I build tools people actually use.",
+    es: "Construyo herramientas que la gente usa de verdad.",
   } satisfies L,
   sub: {
-    en: "ICL Iberia, an underground mine near Barcelona. Failure analysis across 18 machines, and the app the shift is organised on. Before that, six years of mechanical engineering in Peru.",
-    es: "ICL Iberia, mina subterránea cerca de Barcelona. Análisis de fallos sobre 18 máquinas, y la app con la que el turno se organiza. Antes, seis años de ingeniería mecánica en Perú.",
+    en: "Reliability engineer at an underground mine near Barcelona. Everything on this page started as a real problem someone had in front of them, and ended up as something they use every day.",
+    es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. Todo lo que hay en esta página empezó en un problema real que alguien tenía delante, y acabó siendo algo que usa todos los días.",
   } satisfies L,
 };
 

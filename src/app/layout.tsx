@@ -35,14 +35,19 @@ const display = Instrument_Serif({
 const fullName = [person.name, person.lastName].filter(Boolean).join(" ");
 
 /**
- * Base para las URL absolutas de metadatos (OG, sitemap). Vercel expone su
- * propio dominio en VERCEL_URL; en local cae al puerto de desarrollo.
+ * Base para las URL absolutas de metadatos (OG, sitemap).
+ *
+ * VERCEL_PROJECT_PRODUCTION_URL es el dominio estable del proyecto;
+ * VERCEL_URL cambia en cada despliegue, así que solo sirve de reserva para
+ * las vistas previas. Con un dominio propio, define NEXT_PUBLIC_SITE_URL.
  */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL
-  ? process.env.NEXT_PUBLIC_SITE_URL
-  : process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000";
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : "http://localhost:3000");
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
