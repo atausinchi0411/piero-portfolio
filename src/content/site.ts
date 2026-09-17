@@ -34,17 +34,22 @@ export const hero = {
   // El titular solo tiene que hacer que sigas leyendo. Los números los da la
   // tira de abajo, la persona la da la foto, y el software lo da el subtítulo.
   // Nada de presumir aquí: de eso ya se encargan los proyectos.
-  // Corto a propósito: va en serif a 60px, y trece palabras ahí son un muro.
-  // "de verdad" es la palabra que carga la frase: casi toda herramienta
-  // interna que se construye acaba abandonada. Las de aquí no, y eso se puede
-  // demostrar — por eso la frase aguanta una entrevista.
+  // Dos titulares anteriores fallaron por lo mismo: "el software que usa mi
+  // departamento lo escribí yo" y "herramientas que la gente usa de verdad"
+  // discuten con un escéptico que no está en la sala. Un titular que se
+  // defiende suena inseguro, por muy cierto que sea lo que dice.
+  //
+  // Este no reclama nada sobre él: dice qué gana la persona del otro lado.
+  // Sale del caso del cierre masivo en SAP — "has perdido una tarde en hacer
+  // clics" — así que hay un proyecto en esta misma página que lo respalda.
+  // Va en serif a 60px: dos líneas, no más.
   headline: {
-    en: "I build tools people actually use.",
-    es: "Construyo herramientas que la gente usa de verdad.",
+    en: "I give back the afternoons manual work eats.",
+    es: "Devuelvo las tardes que se come el trabajo manual.",
   } satisfies L,
   sub: {
-    en: "Reliability engineer at an underground mine near Barcelona. Everything on this page started as a real problem someone had in front of them, and ended up as something they use every day.",
-    es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. Todo lo que hay en esta página empezó en un problema real que alguien tenía delante, y acabó siendo algo que usa todos los días.",
+    en: "Reliability engineer at an underground mine near Barcelona. Almost everything here came from looking at a process that already worked and taking out what did not need to be there.",
+    es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. Casi todo lo que hay aquí salió de mirar un proceso que ya funcionaba y quitarle lo que le sobraba.",
   } satisfies L,
 };
 
