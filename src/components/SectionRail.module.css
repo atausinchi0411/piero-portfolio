@@ -1,13 +1,14 @@
 /* ==========================================================================
    Índice lateral
-   Vive en el margen libre que deja el contenedor de 1140px. Por debajo de
-   1240px ese margen no existe, así que desaparece — la cabecera ya marca la
-   sección activa y es suficiente.
+   Vive en el margen libre que deja el contenedor de 1140px, a la izquierda:
+   en una página que se lee de izquierda a derecha, el índice va del lado por
+   el que empieza la vista. Por debajo de 1240px ese margen no existe, así que
+   desaparece — la cabecera ya marca la sección activa y es suficiente.
    ========================================================================== */
 
 .rail {
   position: fixed;
-  right: max(16px, calc((100vw - var(--maxw)) / 2 - 116px));
+  left: max(16px, calc((100vw - var(--maxw)) / 2 - 116px));
   top: 50%;
   z-index: 40;
   transform: translateY(-50%);
@@ -85,14 +86,14 @@
 @media (max-width: 1400px) {
   .label {
     position: absolute;
-    right: calc(100% + 12px);
+    left: calc(100% + 12px);
     padding: 4px 9px;
     border: 1px solid var(--line);
     border-radius: 999px;
     background: var(--surface);
     box-shadow: var(--shadow-sm);
     opacity: 0;
-    transform: translateX(4px);
+    transform: translateX(-4px);
     pointer-events: none;
     transition: opacity .16s ease, transform .16s ease;
   }
