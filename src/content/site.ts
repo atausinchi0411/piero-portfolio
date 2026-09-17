@@ -18,7 +18,10 @@ export const person = {
   github: "https://github.com/atausinchi0411" as string | null,
   linkedin: "https://www.linkedin.com/in/piero-atausinchi/" as string | null,
   cv: null as string | null, // FALTA: PDF en /public
-  photo: "/me/piero.jpg" as string | null,
+  // El nombre lleva año a propósito: Next y el CDN de Vercel cachean la imagen
+  // optimizada por URL, así que sustituir el archivo sin cambiar la ruta deja
+  // la foto vieja servida durante horas. Al cambiar de foto, cambia el nombre.
+  photo: "/me/piero-2026.jpg" as string | null,
   available: {
     en: "Open to roles in data & automation across Europe",
     es: "Abierto a posiciones de datos y automatización en Europa",

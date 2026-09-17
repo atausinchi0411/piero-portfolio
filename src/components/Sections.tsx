@@ -191,8 +191,8 @@ export function AboutSection() {
               <Image
                 src={person.photo}
                 alt={`${person.name} ${person.lastName}`}
-                width={520}
-                height={650}
+                width={896}
+                height={1200}
                 sizes="(max-width: 860px) calc(100vw - 40px), 320px"
                 quality={90}
                 className={s.aboutPhoto}
