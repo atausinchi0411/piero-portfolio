@@ -48,9 +48,9 @@
 
 /* ---------- Titular ---------- */
 .headline {
-  max-width: 19ch;
+  max-width: 21ch;
   font-family: var(--font-display), var(--font-sans), serif;
-  font-size: clamp(38px, 6.2vw, 68px);
+  font-size: clamp(34px, 5.4vw, 60px);
   font-weight: 400;
   letter-spacing: -0.018em;
   line-height: 1.0;

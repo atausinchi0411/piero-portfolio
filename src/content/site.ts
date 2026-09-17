@@ -26,13 +26,17 @@ export const person = {
 };
 
 export const hero = {
+  // El titular anterior decía "el software que lo predice". NexoIBP calcula
+  // disponibilidad, MTTF y MTTR y clasifica máquinas: eso es análisis, no
+  // predicción. Un titular que promete más de lo que el trabajo sostiene se
+  // cae en la primera pregunta de una entrevista.
   headline: {
-    en: "I fix machines that break, then I build the software that predicts it.",
-    es: "Arreglo máquinas que fallan, y luego construyo el software que lo predice.",
+    en: "I am a reliability engineer, and I wrote the software my department runs on.",
+    es: "Soy ingeniero de fiabilidad. El software que usa mi departamento lo escribí yo.",
   } satisfies L,
   sub: {
-    en: "Mechanical engineer with an MBA, working reliability in an underground mine near Barcelona. Most of what I ship started as a problem nobody had time to solve: a paper handoff, a spreadsheet nobody trusted, a fleet running blind.",
-    es: "Ingeniero mecánico con MBA, trabajando fiabilidad en una mina subterránea cerca de Barcelona. Casi todo lo que construyo empezó como un problema que nadie tenía tiempo de resolver: un relevo en papel, un Excel en el que nadie confiaba, una flota operando a ciegas.",
+    en: "ICL Iberia, an underground mine near Barcelona. Failure analysis across 18 machines, and the app the shift is organised on. Before that, six years of mechanical engineering in Peru.",
+    es: "ICL Iberia, mina subterránea cerca de Barcelona. Análisis de fallos sobre 18 máquinas, y la app con la que el turno se organiza. Antes, seis años de ingeniería mecánica en Perú.",
   } satisfies L,
 };
 

@@ -49,7 +49,13 @@ function ThemeToggle() {
 function LocaleToggle() {
   const { locale, setLocale } = useLocale();
   return (
-    <div className={s.segmented} role="group" aria-label="Language">
+    <div className={s.segmented} role="group" aria-label="Language / Idioma">
+      <svg className={s.globe} width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" aria-hidden="true">
+        <title>idioma</title>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3.2 9h17.6M3.2 15h17.6" />
+        <path d="M12 3a15 15 0 0 1 0 18a15 15 0 0 1 0-18Z" />
+      </svg>
       {(["en", "es"] as const).map((code) => (
         <button
           key={code}
