@@ -102,7 +102,7 @@ const about: About = {
     title: "Work Experience",
     experiences: [
       {
-        company: "International Mining Operation",
+        company: "ICL Iberia",
         timeframe: "2023 - Present",
         role: "Reliability & Maintenance Engineer",
         achievements: [

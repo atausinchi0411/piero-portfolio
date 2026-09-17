@@ -102,7 +102,7 @@ const about: About = {
     title: "Experiencia Laboral",
     experiences: [
       {
-        company: "Operacion Minera Internacional",
+        company: "ICL Iberia",
         timeframe: "2023 - Presente",
         role: "Ingeniero de Fiabilidad y Mantenimiento",
         achievements: [
