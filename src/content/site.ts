@@ -913,16 +913,17 @@ export const experience: Experience[] = [
   },
 ];
 
-// Fechas y centros tomados del CV. El MBA figura en curso desde 04/2024;
-// si ya lo has terminado, cambia el año por el de fin.
+// Fechas y centros tomados del CV, con una excepción: el CV da el MBA por
+// "04/2024 – ACTUAL" y está terminado desde 2024. Ese es un cuarto "Actual"
+// mal que hay que arreglar también en Europass.
 export const studies = [
   {
     name: { en: "MBA", es: "MBA" } satisfies L,
     org: "London School of Commerce Malta",
-    year: "2024 —",
+    year: "2024",
     note: {
-      en: "Master of Business Administration. In progress.",
-      es: "Máster en Administración de Empresas. En curso.",
+      en: "Master of Business Administration.",
+      es: "Máster en Administración de Empresas.",
     } satisfies L,
   },
   {
