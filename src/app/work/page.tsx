@@ -1,6 +1,8 @@
 import { Column, Heading, Meta, Schema } from "@once-ui-system/core";
 import { baseURL, about, person, work } from "@/resources";
+import * as es from "@/resources/content-es";
 import { Projects } from "@/components/work/Projects";
+import { LocaleSwitch } from "@/components/LocaleSwitch";
 
 export async function generateMetadata() {
   return Meta.generate({
@@ -29,7 +31,7 @@ export default function Work() {
         }}
       />
       <Heading marginBottom="l" variant="heading-strong-xl" align="center">
-        {work.title}
+        <LocaleSwitch en={work.title} es={es.work.title} />
       </Heading>
       <Projects />
     </Column>

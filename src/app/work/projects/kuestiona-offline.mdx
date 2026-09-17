@@ -1,0 +1,36 @@
+---
+title: "Kuestiona Offline — Course Downloader"
+publishedAt: "2025-08-01"
+summary: "An automated tool that downloads course materials from the Kuestiona e-learning platform for offline access, replicating the original 'Mi Curso — Biblioteca y Recomendaciones' interface 1:1."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Piero"
+    role: "Developer"
+    avatar: "/images/avatar.jpg"
+---
+
+## Overview
+
+**Kuestiona Offline** is a personal tool built with permission from Kuestiona to automatically download course materials from their e-learning platform for offline study. The app replicates the original "Mi Curso — Biblioteca y Recomendaciones" interface, providing a familiar 1:1 experience without requiring an internet connection.
+
+## Features
+
+- **Automated material download**: Scrapes and downloads all course content — videos, documents, readings, and resources — from the Kuestiona platform
+- **1:1 interface replica**: The offline viewer mirrors the original platform's "Mi Curso," "Biblioteca," and "Recomendaciones" sections so navigation feels identical
+- **Offline-first**: Once downloaded, all materials are accessible without internet — ideal for studying on the go or in areas with limited connectivity
+- **Organized library**: Materials are structured by course, module, and lesson, maintaining the same hierarchy as the online platform
+
+## Technical Approach
+
+The tool combines web scraping with a local file server to create a seamless offline experience:
+
+- **Automated scraping pipeline** that authenticates with the platform and downloads all enrolled course materials
+- **Local interface** built to match the original Kuestiona UI for a familiar user experience
+- **File organization** that mirrors the platform's course structure for easy navigation
+
+## Technologies Used
+
+- **Python** — Scraping and download automation
+- **HTML/CSS/JavaScript** — Offline interface replica
+- **Local storage** — Organized file system for course materials

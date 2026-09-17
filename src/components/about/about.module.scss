@@ -8,6 +8,10 @@
     }
 }
 
+.companyHeader {
+    border-bottom: 1px solid var(--neutral-border-medium);
+}
+
 @media (max-width: breakpoints.$s) {
     .textAlign {
         text-align: center;

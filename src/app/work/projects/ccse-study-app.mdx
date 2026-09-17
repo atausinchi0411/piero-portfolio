@@ -1,0 +1,45 @@
+---
+title: "CCSE Study App — Apto"
+publishedAt: "2025-09-01"
+summary: "A single-file web app for studying Spain's CCSE citizenship exam — 300 official questions, spaced repetition, timed mock exams, and a full syllabus — built with zero dependencies."
+images:
+  - "/images/projects/project-01/cover-01.jpg"
+team:
+  - name: "Piero"
+    role: "Developer"
+    avatar: "/images/avatar.jpg"
+---
+
+## Overview
+
+**Apto** is a personal study tool built to prepare for Spain's CCSE exam (Conocimientos Constitucionales y Socioculturales de España) — the test required for Spanish nationality. The entire app runs from a single HTML file with zero external dependencies beyond Google Fonts.
+
+## Features
+
+- **300 official questions** organized across 5 topics (Constitution, Government, Geography, History, Culture) with detailed explanations for every answer
+- **Spaced repetition system**: Questions are classified as Dominated, Learned, Doubtful, or Failed based on your confidence level after each answer — the app prioritizes weak areas automatically
+- **Timed mock exams (Simulacro)**: Full 25-question simulations with a 45-minute countdown, answer sheet navigation, and pass/fail verdict matching the real exam format (60% threshold)
+- **Complete syllabus (Temario)**: All exam topics available as readable study material within the app
+- **Progress tracking**: Weekly study streaks, per-topic mastery bars, and overall readiness indicators
+- **Dark mode**: Full light/dark theme support following system preferences
+
+## Technical Approach
+
+The entire application — HTML, CSS, and 2,500+ lines of JavaScript — lives in a **single self-contained file**. Data (questions, explanations, syllabus) is embedded as JSON, and all state is persisted in `localStorage`.
+
+- **Custom build pipeline**: A Node.js build script (`build.mjs`) merges the HTML template with JSON data files and inlines everything into one distributable file
+- **Zero framework**: Vanilla JavaScript with a custom reactive rendering approach — no React, no Vue, no build toolchain required at runtime
+- **Mobile-first design**: Optimized for phone study sessions with safe-area support, sticky navigation, and touch-friendly controls
+
+## Data Pipeline
+
+1. Raw syllabus text processed and structured into 5 topic-specific explanation files
+2. 300 questions extracted and formatted as structured JSON with correct answers and topic tags
+3. Build script merges all data sources into the final single-file app
+
+## Technologies Used
+
+- **HTML/CSS/JavaScript** — Single-file architecture
+- **Node.js** — Build pipeline
+- **localStorage** — Client-side progress persistence
+- **Google Fonts** — Archivo, Source Serif 4, IBM Plex Mono
