@@ -1,0 +1,113 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.frame {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding-inline: 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.light {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  flex: none;
+}
+
+.chromeLabel {
+  margin-left: 8px;
+  font-size: 10px;
+  color: var(--ink-3);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.counter {
+  margin-left: auto;
+  font-size: 10px;
+  color: var(--ink-3);
+  flex: none;
+}
+
+/* 2:1 para que las capturas de pantalla completa entren enteras, sin recorte
+   vertical: en un flujo por pasos, cortar el botón de abajo arruina la lectura. */
+.canvas {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  background: var(--surface-2);
+}
+
+/* Todos los fotogramas apilados; solo uno visible. El cruce es la animación. */
+.img {
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  transition: opacity .45s ease;
+}
+
+.img[data-on="true"] { opacity: 1; }
+
+/* ---------- Pasos ---------- */
+.steps {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 12px 6px 8px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: color .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.step:hover { color: var(--ink-2); border-color: var(--line-strong); }
+
+.step[data-on="true"] {
+  color: var(--ink);
+  border-color: var(--signal-line);
+  background: var(--signal-bg);
+}
+
+.stepNum {
+  display: grid;
+  place-items: center;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  font-size: 9.5px;
+  color: var(--ink-3);
+  flex: none;
+}
+
+.step[data-on="true"] .stepNum {
+  background: var(--signal);
+  color: #fff;
+}

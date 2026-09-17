@@ -1,0 +1,189 @@
+.page {
+  padding-block: 40px 90px;
+  max-width: 820px;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13.5px;
+  color: var(--ink-3);
+  transition: color .16s ease;
+}
+
+.back:hover { color: var(--signal); }
+.back svg { transition: transform .18s ease; }
+.back:hover svg { transform: translateX(-3px); }
+
+.head { margin-top: 26px; }
+
+.title {
+  margin-top: 10px;
+  font-family: var(--font-display), var(--font-sans), serif;
+  font-size: clamp(34px, 5.2vw, 52px);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.02;
+}
+
+.summary {
+  margin-top: 14px;
+  max-width: 60ch;
+}
+
+/* ---------- Ficha técnica ---------- */
+.spec {
+  display: grid;
+  /* Tres fijas para que la primera fila siempre cierre sin huecos. */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin: 32px 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--line);
+  overflow: hidden;
+}
+
+.spec > div {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px 18px;
+  background: var(--surface);
+}
+
+.spec dt { color: var(--signal); }
+
+.spec dd {
+  margin: 0;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.specStack { grid-column: 1 / -1; }
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+/* ---------- Nota de proyecto privado ---------- */
+.note {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 18px;
+  padding: 13px 16px;
+  border: 1px solid var(--line);
+  border-left: 2px solid var(--signal);
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-2);
+}
+
+.noteTag {
+  flex: none;
+  font-size: 10px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--signal);
+  padding-top: 2px;
+}
+
+/* ---------- Cuerpo ---------- */
+.body {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.body h2 {
+  margin-top: 22px;
+  font-size: 21px;
+  letter-spacing: -0.022em;
+}
+
+.body p {
+  font-size: 16px;
+  line-height: 1.68;
+  color: var(--ink-2);
+}
+
+.body ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.body ul li {
+  position: relative;
+  padding-left: 19px;
+  font-size: 15.5px;
+  line-height: 1.62;
+  color: var(--ink-2);
+}
+
+.body ul li::before {
+  content: "";
+  position: absolute;
+  left: 2px;
+  top: 10px;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--signal);
+  opacity: .55;
+}
+
+.inlineShot { margin: 12px 0; }
+
+.inlineShot figcaption {
+  margin-top: 9px;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+/* ---------- Link externo ---------- */
+.visit {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 36px;
+  padding: 11px 18px;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: border-color .16s ease, color .16s ease;
+}
+
+.visit:hover { color: var(--signal); border-color: var(--signal); }
+
+@media (max-width: 560px) {
+  .spec { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .page { padding-block: 28px 64px; }
+}
+
+/* Entrada de página.
+   Sustituye a las view transitions: mismo efecto percibido al abrir un caso,
+   sin depender de una API experimental del router. */
+.page {
+  animation: caseIn .5s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+@keyframes caseIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page { animation: none; }
+}

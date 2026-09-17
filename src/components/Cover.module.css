@@ -1,0 +1,270 @@
+/* ==========================================================================
+   Portadas
+   Las generadas comparten marco con las capturas, pero nunca su cromo de
+   ventana: una ventana falsa alrededor de un diagrama sería una mentira
+   pequeña y gratuita. Todo escala con container queries, porque la misma
+   portada se pinta a 260px en la grid y a 640px en el destacado.
+   ========================================================================== */
+
+.img {
+  object-fit: cover;
+  object-position: top center;
+}
+
+.flow,
+.steps,
+.audio,
+.pending {
+  position: absolute;
+  inset: 0;
+  container-type: inline-size;
+}
+
+/* ------------------------------------------------------------------ flow */
+
+.flow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) 13% minmax(0, 1fr);
+  align-items: center;
+  gap: 0 2cqi;
+  padding: 6cqi 5cqi;
+}
+
+.flowIn {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2.6cqi;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  min-width: 0;
+}
+
+.node {
+  display: flex;
+  align-items: center;
+  gap: 1.8cqi;
+  padding: 2.2cqi 2.4cqi;
+  border: 1px solid var(--line-strong);
+  border-radius: calc(var(--r-sm) + 1px);
+  background: var(--surface);
+  min-width: 0;
+}
+
+.nodeIndex {
+  font-size: clamp(7px, 2.5cqi, 11px);
+  color: var(--ink-3);
+  flex: none;
+  letter-spacing: .04em;
+}
+
+.nodeText {
+  font-size: clamp(8px, 2.9cqi, 13px);
+  line-height: 1.25;
+  color: var(--ink-2);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.wires {
+  width: 100%;
+  height: 76%;
+  overflow: visible;
+}
+
+.wire {
+  fill: none;
+  stroke: var(--line-strong);
+  stroke-width: 1.1;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 160;
+  stroke-dashoffset: 160;
+  animation: draw .9s cubic-bezier(.4, 0, .2, 1) forwards;
+}
+
+@keyframes draw { to { stroke-dashoffset: 0; } }
+
+.flowOut {
+  display: flex;
+  flex-direction: column;
+  gap: 2cqi;
+  padding: 3.4cqi 3.4cqi 3.8cqi;
+  border: 1px solid var(--signal-line);
+  border-radius: var(--r-md);
+  background: var(--signal-bg);
+  min-width: 0;
+}
+
+.outDot {
+  width: 2.2cqi;
+  min-width: 5px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--signal);
+}
+
+.outText {
+  font-size: clamp(8.5px, 3.1cqi, 14px);
+  line-height: 1.28;
+  font-weight: 520;
+  color: var(--signal-ink);
+  letter-spacing: -.012em;
+}
+
+/* ----------------------------------------------------------------- steps */
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3cqi;
+  padding: 6cqi 5cqi;
+  text-align: center;
+}
+
+.stepRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.6cqi;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  padding: 1.5cqi 2.4cqi;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: clamp(7px, 2.5cqi, 11.5px);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+
+.repeat {
+  padding: 1.5cqi 2.4cqi;
+  border: 1px dashed var(--ink-3);
+  border-radius: 999px;
+  font-size: clamp(7px, 2.6cqi, 12px);
+  font-weight: 600;
+  color: var(--ink-2);
+  white-space: nowrap;
+}
+
+.collapse {
+  display: flex;
+  align-items: center;
+  gap: 2cqi;
+  width: 56%;
+  color: var(--ink-3);
+}
+
+.collapse svg {
+  width: clamp(11px, 4cqi, 18px);
+  height: auto;
+  flex: none;
+}
+
+.collapseLine {
+  flex: 1;
+  height: 1px;
+  background: var(--line-strong);
+}
+
+.result {
+  margin: 0;
+  padding: 2.4cqi 4cqi;
+  border: 1px solid var(--signal-line);
+  border-radius: 999px;
+  background: var(--signal-bg);
+  color: var(--signal-ink);
+  font-size: clamp(8.5px, 3.1cqi, 14px);
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+
+/* ----------------------------------------------------------------- audio */
+
+.audio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4cqi;
+  padding: 7cqi 6cqi;
+}
+
+.wave {
+  display: flex;
+  align-items: center;
+  gap: 0.7cqi;
+  height: 46%;
+}
+
+.bar {
+  flex: 1;
+  min-width: 1px;
+  border-radius: 999px;
+  background: linear-gradient(var(--signal), color-mix(in srgb, var(--signal) 45%, transparent));
+  transform-origin: center;
+  animation: rise .7s cubic-bezier(.2, .8, .3, 1) backwards;
+}
+
+@keyframes rise {
+  from { transform: scaleY(.06); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+.audioMeta {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 3cqi;
+  margin: 0;
+  padding-top: 3cqi;
+  border-top: 1px solid var(--line);
+}
+
+.audioTitle {
+  font-size: clamp(9px, 3.2cqi, 15px);
+  font-weight: 540;
+  letter-spacing: -.015em;
+  color: var(--ink);
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.audioTime {
+  font-size: clamp(8px, 2.7cqi, 12px);
+  color: var(--ink-3);
+  flex: none;
+}
+
+/* --------------------------------------------------------------- hueco --- */
+
+.pending {
+  display: grid;
+  place-items: center;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 9px,
+    color-mix(in srgb, var(--line-strong) 45%, transparent) 9px 10px
+  );
+}
+
+.pendingText {
+  padding: 5px 10px;
+  border: 1px dashed var(--line-strong);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 10.5px;
+  letter-spacing: .07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}

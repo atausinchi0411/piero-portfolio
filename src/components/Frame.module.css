@@ -1,0 +1,53 @@
+.frame {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 26px;
+  flex: none;
+  padding-inline: 10px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+
+.lights { display: flex; gap: 5px; }
+
+.light {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--line-strong);
+  flex: none;
+}
+
+.label {
+  font-size: 10px;
+  color: var(--ink-3);
+  letter-spacing: .04em;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.canvas {
+  position: relative;
+  width: 100%;
+  background: var(--surface-2);
+}
+
+.frame[data-ratio="card"] .canvas { aspect-ratio: 16 / 10; }
+.frame[data-ratio="wide"] .canvas { aspect-ratio: 16 / 9; }
+
+/* La portada destacada se estira al alto de su columna. */
+.frame[data-fill] { height: 100%; }
+.frame[data-fill] .canvas { flex: 1; aspect-ratio: auto; min-height: 220px; }

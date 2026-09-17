@@ -1,0 +1,141 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  backdrop-filter: saturate(150%) blur(18px);
+  -webkit-backdrop-filter: saturate(150%) blur(18px);
+  border-bottom: 1px solid var(--line);
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 58px;
+}
+
+/* ---------- Marca ---------- */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-right: auto;
+  font-size: 14.5px;
+  font-weight: 560;
+  letter-spacing: -0.012em;
+  white-space: nowrap;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--signal);
+  box-shadow: 0 0 0 3px var(--signal-bg);
+  flex: none;
+}
+
+.brandLast { color: var(--ink-3); font-weight: 450; }
+
+/* ---------- Navegación ---------- */
+.nav {
+  display: flex;
+  gap: 22px;
+  font-size: 14px;
+  color: var(--ink-2);
+}
+
+.nav a {
+  position: relative;
+  padding-block: 4px;
+  transition: color .16s ease;
+}
+
+.nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--signal);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .2s ease;
+}
+
+.nav a:hover { color: var(--ink); }
+.nav a:hover::after { transform: scaleX(1); }
+
+/* ---------- Acciones ---------- */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.segmented {
+  display: flex;
+  padding: 2px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+}
+
+.segment {
+  border: 0;
+  background: transparent;
+  padding: 3px 9px;
+  border-radius: 999px;
+  font-family: var(--font-mono), monospace;
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: background .16s ease, color .16s ease;
+}
+
+.segment[data-active="true"] {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-sm);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-2);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: color .16s ease, border-color .16s ease;
+}
+
+.icon:hover { color: var(--ink); border-color: var(--line-strong); }
+
+@media (max-width: 680px) {
+  .nav { display: none; }
+}
+
+/* ---------- Sección activa ---------- */
+.nav a[data-active] { color: var(--ink); }
+.nav a[data-active]::after { transform: scaleX(1); }
+
+/* ---------- Progreso de lectura ----------
+   Va pegado al borde inferior de la cabecera. scaleX en lugar de width para
+   que la animación no provoque reflow en cada scroll. */
+.progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--signal);
+  transform-origin: left;
+  transform: scaleX(0);
+  will-change: transform;
+}

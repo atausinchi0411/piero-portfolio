@@ -1,0 +1,19 @@
+.reveal {
+  opacity: 0;
+  transition:
+    opacity .62s cubic-bezier(.22, .61, .36, 1) var(--reveal-delay, 0ms),
+    transform .62s cubic-bezier(.22, .61, .36, 1) var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal[data-mode="up"] { transform: translateY(14px); }
+
+.reveal[data-shown] {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+}

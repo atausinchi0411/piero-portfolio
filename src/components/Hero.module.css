@@ -1,0 +1,183 @@
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 40px 48px;
+  padding-block: clamp(48px, 7vw, 88px) clamp(40px, 5vw, 56px);
+}
+
+.main { min-width: 0; }
+
+/* ---------- Estado / disponibilidad ---------- */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 5px 12px 5px 9px;
+  border: 1px solid var(--signal-line);
+  border-radius: 999px;
+  background: var(--signal-bg);
+  font-size: 11.5px;
+  letter-spacing: .02em;
+  color: var(--signal-ink);
+}
+
+.pulse {
+  position: relative;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--signal);
+  flex: none;
+}
+
+.pulse::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  border: 1px solid var(--signal);
+  opacity: .5;
+  animation: ping 2.4s cubic-bezier(0, 0, .2, 1) infinite;
+}
+
+@keyframes ping {
+  0%   { transform: scale(.6); opacity: .6; }
+  80%, 100% { transform: scale(1.5); opacity: 0; }
+}
+
+/* ---------- Titular ---------- */
+.headline {
+  max-width: 19ch;
+  font-family: var(--font-display), var(--font-sans), serif;
+  font-size: clamp(38px, 6.2vw, 68px);
+  font-weight: 400;
+  letter-spacing: -0.018em;
+  line-height: 1.0;
+}
+
+.sub {
+  max-width: 56ch;
+  margin-top: 20px;
+}
+
+/* ---------- Acciones ---------- */
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding-inline: 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform .16s ease, border-color .16s ease, background .16s ease;
+}
+
+.primary {
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--ink);
+}
+
+.secondary {
+  border: 1px solid var(--line-strong);
+  color: var(--ink-2);
+}
+
+.primary:hover { transform: translateY(-1px); }
+.secondary:hover { color: var(--ink); border-color: var(--ink-3); transform: translateY(-1px); }
+
+/* ---------- Retrato ---------- */
+.side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.portrait {
+  position: relative;
+  width: 200px;
+  aspect-ratio: 4 / 5;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--surface-2);
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent 0 9px,
+    color-mix(in srgb, var(--line-strong) 40%, transparent) 9px 10px
+  );
+}
+
+.portraitImg { object-fit: cover; }
+
+.initials {
+  font-size: 34px;
+  font-weight: 500;
+  letter-spacing: .04em;
+  color: var(--ink-3);
+  padding: 8px 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px dashed var(--line-strong);
+}
+
+.where {
+  font-size: 11px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+/* ---------- Tira de métricas ---------- */
+.metrics {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1px;
+  margin: 6px 0 0;
+  border: 1px solid var(--line);
+  border-radius: var(--r-lg);
+  background: var(--line);
+  overflow: hidden;
+}
+
+.metric {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 18px 20px;
+  background: var(--surface);
+}
+
+.metricValue {
+  font-size: 27px;
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.metricLabel {
+  margin: 0;
+  font-size: 12.5px;
+  color: var(--ink-3);
+}
+
+@media (max-width: 860px) {
+  .hero { grid-template-columns: 1fr; gap: 28px; }
+  .side { flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; }
+  .portrait { width: 88px; border-radius: var(--r-md); }
+  .initials { font-size: 20px; padding: 5px 9px; }
+}
