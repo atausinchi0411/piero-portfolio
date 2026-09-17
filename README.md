@@ -24,13 +24,12 @@ los dos, TypeScript te avisa al compilar.
 | Quiero… | Voy a… |
 |---|---|
 | Cambiar el titular | `hero.headline` |
-| Cambiar los 4 números de arriba | `heroMetrics` |
 | Añadir un proyecto | Nuevo objeto en `projects` |
 | Reordenar proyectos | Mover el objeto dentro del array (el orden del array = el orden en pantalla) |
 | Destacar un proyecto | `featured: true` |
 | Añadir un trabajo | Nuevo objeto en `experience` |
-| Poner mi foto | Guardar en `public/me/` y apuntar `person.photo` |
-| Poner el CV | Guardar el PDF en `public/` y apuntar `person.cv` |
+| Poner mi foto | Guardar en `public/me/` con **nombre nuevo** y apuntar `person.photo`. Si reutilizas el nombre, el CDN sigue sirviendo la vieja |
+| Cambiar el CV | Editar `tools/generar-cv.py` y ejecutar `python tools/generar-cv.py` |
 
 ## Portadas — el sistema, y por qué es así
 
@@ -90,12 +89,23 @@ decide el nivel:
 3. **Todo lo demás** → índice de texto, sin portada. Se escanea en segundos y
    hace que las portadas de arriba conserven su valor.
 
-## Sobre mí y los tres principios
+## CV
 
-`about.principles` en `site.ts`. Cada principio lleva un campo `proof` con el
-`slug` del proyecto que lo demuestra, y el sitio pinta el enlace solo. **Si
-cambias un principio, comprueba que el caso que lo respalda sigue diciendo lo
-mismo** — sin ese enlace esto es una lista de frases bonitas.
+Se genera en español e inglés desde un único sitio:
+
+```bash
+python tools/generar-cv.py
+```
+
+El contenido vive en `tools/generar-cv.py`, no aquí. Salen
+`public/Piero_Atausinchi_CV_ES.pdf` y `_EN.pdf`, y `person.cv` es bilingüe: la
+web descarga el que corresponde al idioma activo.
+
+Los dos idiomas comparten el molde de maquetación a propósito. Si viviera
+duplicado, cualquier arreglo habría que hacerlo dos veces y una de las dos
+versiones se quedaría atrás sin que nadie lo notara.
+
+**No edites los PDF a mano.** Se regeneran y pierdes el cambio.
 
 ## Imagen al compartir
 
@@ -124,18 +134,49 @@ src/
 
 ## Diseño
 
-Dirección: **hoja técnica**. Tipografía apretada, números en monoespaciada, un solo
-color de señal (naranja). Los colores se definen como tokens en `globals.css` y se
-redefinen para modo oscuro — no hay colores sueltos en los componentes.
+Dirección: **hoja técnica con titulares editoriales**. Instrument Serif solo en el
+titular del hero, el nombre del proyecto destacado y el título del caso; Inter en
+todo lo demás y JetBrains Mono en los datos. Un solo color de señal (naranja). Los
+colores se definen como tokens en `globals.css` y se redefinen para modo oscuro —
+no hay colores sueltos en los componentes.
+
+La paleta está medida, no elegida a ojo. La separación fondo/tarjeta de ~1.05 es la
+normal en GitHub, Stripe y Linear: **lo que dibuja una tarjeta es el borde**
+(objetivo ≥1.45 contra su superficie) y la sombra. En oscuro no hay sombra que
+ayude, así que ahí el escalón de superficie tiene que ser real (≥1.20). Todo el
+texto pasa AA 4.5 sobre las tres superficies. Si cambias un color, vuelve a medir.
+
+Movimiento: aparición al entrar en pantalla con `IntersectionObserver` y no con
+`animation-timeline: view()`, porque el soporte todavía no es uniforme y esto es la
+primera impresión del sitio. Todo respeta `prefers-reduced-motion`.
 
 El tema respeta la preferencia del sistema y se puede forzar con el botón del header.
 La elección se guarda en `localStorage` y se aplica antes del primer paint.
 
+## Despliegue
+
+```bash
+npx vercel --prod
+```
+
+Sale del directorio de trabajo, no de git. El repo `atausinchi0411/piero-portfolio`
+está **desconectado** del proyecto de Vercel a propósito: todavía contiene la
+plantilla vieja, y conectado habría reconstruido el sitio desde ella en el primer
+push. Si algún día lo reconectas, sube antes este proyecto a ese repo.
+
+Para comprobar que el build pasa sin tumbar un dev server abierto:
+
+```bash
+NEXT_DIST_DIR=.next-check npx next build
+```
+
 ## Pendiente
 
-- [ ] Capturas reales de cada proyecto
-- [ ] Foto propia en `public/me/`
-- [ ] CV en PDF
-- [ ] Confirmar fechas marcadas con `VERIFICAR` en `site.ts`
-- [ ] Verificar que el GitHub enlazado es el correcto
+- [ ] Capturas de AQUATERMICA no hacen falta: usa portada `flow`. Las que sí
+      faltarían son de proyectos futuros
+- [ ] Cerrar el año del plan de AQUATERMICA — ver la nota en `site.ts`, no cuadra
+      con haber salido en mar. 2023
+- [ ] Arreglar en LinkedIn la fecha de entrada en ICL (dice oct. 2024, es oct. 2025)
+      y el fin de Malta (sep. 2025)
 - [ ] Decidir si el email de contacto es este o uno profesional
+- [ ] Dominio propio, y entonces definir `NEXT_PUBLIC_SITE_URL`

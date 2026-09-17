@@ -140,41 +140,6 @@
   color: var(--ink-3);
 }
 
-/* ---------- Tira de métricas ---------- */
-.metrics {
-  grid-column: 1 / -1;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1px;
-  margin: 6px 0 0;
-  border: 1px solid var(--line);
-  border-radius: var(--r-lg);
-  background: var(--line);
-  overflow: hidden;
-}
-
-.metric {
-  display: flex;
-  flex-direction: column;
-  gap: 3px;
-  padding: 18px 20px;
-  background: var(--surface);
-}
-
-.metricValue {
-  font-size: 27px;
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1;
-  color: var(--ink);
-}
-
-.metricLabel {
-  margin: 0;
-  font-size: 12.5px;
-  color: var(--ink-3);
-}
-
 @media (max-width: 860px) {
   .hero { grid-template-columns: 1fr; gap: 28px; }
   .side { flex-direction: row; align-items: center; justify-content: flex-start; gap: 16px; }

@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og";
-import { hero, heroMetrics, person } from "@/content/site";
+import { hero, person } from "@/content/site";
 
 export const alt = "Piero Atausinchi — Reliability & Automation Engineer";
 export const size = { width: 1200, height: 630 };
@@ -23,13 +23,13 @@ export default function OpengraphImage() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        background: "#fbfaf8",
+        background: "#f4f1ea",
         padding: 64,
         fontFamily: "sans-serif",
       }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
-        <div style={{ width: 12, height: 12, borderRadius: 999, background: "#b3400d" }} />
+        <div style={{ width: 12, height: 12, borderRadius: 999, background: "#ab3d0c" }} />
         <div
           style={{
             fontSize: 24,
@@ -55,17 +55,13 @@ export default function OpengraphImage() {
         {hero.headline.en}
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
-        <div style={{ width: "100%", height: 1, background: "#e4e0d9" }} />
-        <div style={{ display: "flex", gap: 56 }}>
-          {heroMetrics.map((m) => (
-            <div key={m.value + m.label.en} style={{ display: "flex", flexDirection: "column", gap: 4 }}>
-              <div style={{ fontSize: 40, fontWeight: 700, letterSpacing: -1, color: "#16161a" }}>
-                {m.value}
-              </div>
-              <div style={{ fontSize: 20, color: "#74747f" }}>{m.label.en}</div>
-            </div>
-          ))}
+      <div style={{ display: "flex", flexDirection: "column", gap: 22 }}>
+        <div style={{ width: "100%", height: 1, background: "#cfc7b7" }} />
+        <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
+          <div style={{ fontSize: 28, color: "#45454e" }}>{person.role.en}</div>
+          <div style={{ fontSize: 22, color: "#74747f" }}>
+            {person.location.en}
+          </div>
         </div>
       </div>
     </div>,

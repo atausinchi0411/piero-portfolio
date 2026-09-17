@@ -6,7 +6,7 @@ import { LeadProject, ProjectCards, ProjectIndex } from "./ProjectGrid";
 import { Reveal } from "./Reveal";
 import s from "./Sections.module.css";
 
-export function SectionHead({ n, title }: { n: string; title: string }) {
+function SectionHead({ n, title }: { n: string; title: string }) {
   return (
     <div className="sectionHead">
       <span className="sectionNum">{n}</span>
@@ -246,6 +246,7 @@ export function ContactSection() {
 /* ---------------------------------------------------------------- Footer */
 
 export function Footer() {
+  const { t } = useLocale();
   const year = new Date().getFullYear();
   return (
     <footer className={s.footer}>
@@ -253,7 +254,10 @@ export function Footer() {
         <span className={`mono ${s.dim}`}>
           © {year} {person.name} {person.lastName}
         </span>
-        <span className={`mono ${s.dim}`}>Built from scratch. No template.</span>
+        {/* Decía "Built from scratch. No template.": una defensa frente a
+            alguien que no está en la sala, y encima solo en inglés en un sitio
+            bilingüe. El código se ve en GitHub; no hace falta decirlo. */}
+        <span className={`mono ${s.dim}`}>{t(person.location)}</span>
       </div>
     </footer>
   );

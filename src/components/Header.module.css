@@ -133,8 +133,29 @@
 
 .icon:hover { color: var(--ink); border-color: var(--line-strong); }
 
-@media (max-width: 680px) {
-  .nav { display: none; }
+/* ---------- Móvil ----------
+   La navegación NO se oculta. El índice lateral desaparece por debajo de
+   1240px, así que si aquí también escondemos el menú el sitio se queda sin
+   forma de moverse — y un enlace compartido se abre casi siempre en un móvil.
+   En su lugar se recorta todo lo que sobra: el apellido, el globo del selector
+   y el aire entre elementos. */
+@media (max-width: 720px) {
+  .inner { gap: 10px; }
+  .brandLast { display: none; }
+  .nav { gap: 14px; font-size: 12.5px; }
+  .segmented { padding: 2px 2px 2px 3px; border-radius: 999px; }
+  .globe { display: none; }
+  .segment { padding: 3px 7px; font-size: 11px; letter-spacing: .03em; }
+  .icon { width: 26px; height: 26px; }
+}
+
+/* Por debajo de 420px el menú no cabe con el nombre delante, y un elemento
+   cortado por la mitad no se lee como "hay más a la derecha": se lee como
+   roto. Se esconde el nombre y el punto sigue siendo el enlace al inicio. */
+@media (max-width: 420px) {
+  .brandName { display: none; }
+  .nav { gap: 13px; }
+  .nav a { white-space: nowrap; }
 }
 
 /* ---------- Sección activa ---------- */

@@ -7,9 +7,12 @@ import type { Experience, L, Project, SkillGroup } from "./types";
 export const person = {
   name: "Piero",
   lastName: "Atausinchi",
+  // Se usa en la tarjeta de compartir y en los metadatos. La versión anterior
+  // decía "builds the software his plant was missing": presumía, igual que los
+  // titulares que ya descartamos. Esta es la misma línea que encabeza el CV.
   role: {
-    en: "Reliability Engineer - builds the software his plant was missing",
-    es: "Ingeniero de fiabilidad - construye el software que a su planta le faltaba",
+    en: "Reliability Engineer  ·  Mechanical Engineer, MBA",
+    es: "Ingeniero de Fiabilidad  ·  Ingeniero Mecánico, MBA",
   } satisfies L,
   location: { en: "Barcelona, Spain", es: "Barcelona, España" } satisfies L,
   timezone: "Europe/Madrid",
@@ -43,8 +46,8 @@ export const hero = {
   //    la sala. Un titular que se defiende suena inseguro.
   // Va en serif a 60px: dos líneas como mucho.
   headline: {
-    en: "Simple tools for complex problems, built from the inside.",
-    es: "Herramientas sencillas para problemas complejos, desde dentro.",
+    en: "Complete tools for complex problems.",
+    es: "Herramientas completas para problemas complejos.",
   } satisfies L,
   // Decir que no viene de programación es honesto y le protege en una
   // entrevista. Se dice con las palabras exactas y sin el término "vibe
@@ -55,17 +58,6 @@ export const hero = {
     es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. No vengo de la programación: aprendí construyendo lo que mi departamento necesitaba, con la IA como herramienta y el problema delante.",
   } satisfies L,
 };
-
-/**
- * La tira de números bajo el hero. Credibilidad sin necesitar capturas.
- * Regla: solo números que puedas defender en una entrevista.
- */
-export const heroMetrics = [
-  { value: "18", label: { en: "trucks monitored", es: "camiones monitorizados" } },
-  { value: "−15%", label: { en: "production cost", es: "coste de producción" } },
-  { value: "6", label: { en: "years in engineering", es: "años en ingeniería" } },
-  { value: "3", label: { en: "countries worked in", es: "países trabajados" } },
-];
 
 /* ============================================================
    PROYECTOS
@@ -264,7 +256,11 @@ export const projects: Project[] = [
   {
     slug: "aquatermica-sales-plan",
     title: "AQUATERMICA Annual Sales Plan",
-    year: "2024", // VERIFICAR el año exacto del encargo
+    // INCOHERENCIA: el CV dice que saliste de AQUATERMICA en mar. 2023, así que
+    // un encargo de 2024 solo cuadra si fue por fuera, ya como consultor —que es
+    // lo que dice el campo `role`. Si fue antes de salir, baja el año a 2022 o
+    // 2023. Es el único dato de la página que no he podido cerrar.
+    year: "2024",
     featured: true,
     summary: {
       en: "Turned years of sales records into an annual plan: what to target next year, and the case for hiring a sales manager to get there.",
@@ -648,10 +644,9 @@ export const experience: Experience[] = [
   {
     company: "ICL Iberia",
     location: { en: "Súria, Barcelona", es: "Súria, Barcelona" },
-    // VERIFICAR: LinkedIn arranca en oct. 2024, pero dijiste que entraste como
-    // contractor antes (¿nov. 2023?). Si el periodo de contractor cuenta, ponlo aquí.
-    // Fechas tomadas del CV (2026_Piero_atausinchi_CV.pdf). La web decia
-    // oct. 2024: un año de más en la empresa actual.
+    // Fechas del CV (2026_Piero_atausinchi_CV.pdf), que incluye el periodo de
+    // contratista vía Oxigent. LinkedIn sigue diciendo oct. 2024 y está mal:
+    // arréglalo también allí o las dos versiones se contradicen.
     from: "oct. 2025",
     to: null,
     stack: ["SAP PM", "Python", "React", "Node.js", "SQL Server", "IoT"],

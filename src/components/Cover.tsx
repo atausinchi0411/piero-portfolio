@@ -108,7 +108,10 @@ function waveform(seed: string, count: number) {
     const noise = ((h >>> 8) % 1000) / 1000;
     // Envolvente suave para que parezca una pieza y no ruido blanco.
     const envelope = Math.sin((i / count) * Math.PI) ** 0.55;
-    return 14 + noise * 62 * envelope + envelope * 22;
+    // Redondeado a dos decimales a propósito: sin esto el servidor escribe
+    // "57.6845%" en el HTML y el cliente calcula "57.68448418357927%", React
+    // ve dos valores distintos y avisa de desajuste de hidratación.
+    return Math.round((14 + noise * 62 * envelope + envelope * 22) * 100) / 100;
   });
 }
 

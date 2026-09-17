@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { hero, heroMetrics, person } from "@/content/site";
+import { hero, person } from "@/content/site";
 import { ui, useLocale } from "@/lib/i18n";
 import s from "./Hero.module.css";
 
@@ -56,15 +56,6 @@ export function Hero() {
         <p className={`mono ${s.where}`}>{t(person.location)}</p>
       </aside>
 
-      {/* Tira de datos: credibilidad inmediata que no depende de capturas. */}
-      <dl className={s.metrics}>
-        {heroMetrics.map((m) => (
-          <div key={m.value + m.label.en} className={s.metric}>
-            <dt className={`mono ${s.metricValue}`}>{m.value}</dt>
-            <dd className={s.metricLabel}>{t(m.label)}</dd>
-          </div>
-        ))}
-      </dl>
     </section>
   );
 }

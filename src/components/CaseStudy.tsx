@@ -36,9 +36,11 @@ export function CaseStudy({ project }: { project: Project }) {
           <dt className="eyebrow">{t(ui.year)}</dt>
           <dd className="mono">{project.year}</dd>
         </div>
+        {/* El dato duro va grande, como en la parrilla. Antes el número
+            estaba en estilo de etiqueta y parecía un encabezado. */}
         <div>
-          <dt className="eyebrow">{project.metric.value}</dt>
-          <dd>{t(project.metric.label)}</dd>
+          <dt className={`mono ${s.specMetric}`}>{project.metric.value}</dt>
+          <dd className={s.specMetricLabel}>{t(project.metric.label)}</dd>
         </div>
         <div className={s.specStack}>
           <dt className="eyebrow">{t(ui.stack)}</dt>
