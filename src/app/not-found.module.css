@@ -1,0 +1,72 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  min-height: 78vh;
+  padding-block: 64px;
+}
+
+.code {
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: var(--signal);
+  margin: 0 0 18px;
+}
+
+.title {
+  font-family: var(--font-display), var(--font-sans), serif;
+  font-size: clamp(32px, 5vw, 54px);
+  font-weight: 400;
+  letter-spacing: -.018em;
+  line-height: 1.04;
+  max-width: 18ch;
+}
+
+.text {
+  margin-top: 18px;
+  max-width: 52ch;
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.en {
+  margin-top: 8px;
+  font-size: 14.5px;
+  color: var(--ink-3);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 32px;
+}
+
+.primary,
+.secondary {
+  display: inline-flex;
+  align-items: center;
+  height: 40px;
+  padding-inline: 18px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: transform .16s ease, border-color .16s ease;
+}
+
+.primary {
+  background: var(--ink);
+  color: var(--bg);
+  border: 1px solid var(--ink);
+}
+
+.secondary {
+  border: 1px solid var(--line-strong);
+  color: var(--ink-2);
+}
+
+.primary:hover,
+.secondary:hover { transform: translateY(-1px); }
+.secondary:hover { color: var(--ink); border-color: var(--ink-3); }

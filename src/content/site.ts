@@ -695,7 +695,9 @@ export const experience: Experience[] = [
     location: { en: "Súria, Barcelona", es: "Súria, Barcelona" },
     // VERIFICAR: LinkedIn arranca en oct. 2024, pero dijiste que entraste como
     // contractor antes (¿nov. 2023?). Si el periodo de contractor cuenta, ponlo aquí.
-    from: "oct. 2024",
+    // Fechas tomadas del CV (2026_Piero_atausinchi_CV.pdf). La web decia
+    // oct. 2024: un año de más en la empresa actual.
+    from: "oct. 2025",
     to: null,
     stack: ["SAP PM", "Python", "React", "Node.js", "SQL Server", "IoT"],
     roles: [
@@ -743,8 +745,8 @@ export const experience: Experience[] = [
           en: "PM Implementation Leader — Continuous Improvement",
           es: "Líder de implementación PM — Mejora continua",
         },
-        from: "oct. 2024",
-        to: "dic. 2025",
+        from: "oct. 2025",
+        to: "ene. 2026",
         bullets: [
           {
             en: "Led field implementation of new processes and systems, including alignment standards and the lubricants consolidation programme.",
@@ -766,9 +768,10 @@ export const experience: Experience[] = [
     company: "Infinite Fusion",
     location: { en: "Luqa & Qormi, Malta", es: "Luqa y Qormi, Malta" },
     from: "ago. 2023",
-    // Corregido: LinkedIn dice jun. 2025 y está mal. Saliste de Malta unos días
-    // antes de empezar en ICL. Arreglar también en LinkedIn.
-    to: "sep. 2024",
+    // Saliste de Malta justo antes de empezar en ICL (oct. 2025). Con la fecha
+    // anterior quedaba un hueco de 13 meses sin explicar, que es la primera
+    // cosa que pregunta un reclutador.
+    to: "sep. 2025",
     stack: ["ArcMap", "GIS", "MS Project"],
     roles: [
       {
@@ -777,7 +780,7 @@ export const experience: Experience[] = [
           es: "Ingeniero de sistemas de información geográfica",
         },
         from: "oct. 2023",
-        to: "sep. 2024",
+        to: "sep. 2025",
         bullets: [
           {
             en: "Captured, stored, checked and displayed the distribution of new valves and pipes for infrastructure projects across Malta using GIS tools.",
@@ -822,7 +825,7 @@ export const experience: Experience[] = [
     company: "AQUATERMICA SAC",
     location: { en: "Lima, Peru", es: "Lima, Perú" },
     from: "dic. 2020",
-    to: "abr. 2023",
+    to: "mar. 2023",
     stack: ["Autodesk Inventor", "ERP", "HVAC", "Cost control"],
     roles: [
       {
@@ -831,7 +834,7 @@ export const experience: Experience[] = [
           es: "Líder de equipo e ingeniero de operaciones",
         },
         from: "dic. 2020",
-        to: "abr. 2023",
+        to: "mar. 2023",
         bullets: [
           {
             en: "Managed a team of 10 across logistics, production and services.",
@@ -860,8 +863,8 @@ export const experience: Experience[] = [
   {
     company: "HYDROSTEEL S.A.C",
     location: { en: "Lima, Peru · Freelance", es: "Lima, Perú · Freelance" },
-    from: "ene. 2021",
-    to: "dic. 2022",
+    from: "2020",
+    to: "2022",
     stack: ["Autodesk Inventor", "Technical drawing"],
     roles: [
       {
@@ -869,8 +872,8 @@ export const experience: Experience[] = [
           en: "CAD Modeller — Mechanical Systems",
           es: "Modelador CAD — sistemas mecánicos",
         },
-        from: "ene. 2021",
-        to: "dic. 2022",
+        from: "2020",
+        to: "2022",
         bullets: [
           {
             en: "Built 3D models of machines in Autodesk Inventor from client orders and drawings, with the detail needed to actually manufacture from them.",
@@ -910,20 +913,22 @@ export const experience: Experience[] = [
   },
 ];
 
+// Fechas y centros tomados del CV. El MBA figura en curso desde 04/2024;
+// si ya lo has terminado, cambia el año por el de fin.
 export const studies = [
   {
     name: { en: "MBA", es: "MBA" } satisfies L,
-    org: "UTEC + LSCM",
-    year: "2024", // VERIFICAR
+    org: "London School of Commerce Malta",
+    year: "2024 —",
     note: {
-      en: "Master of Business Administration.",
-      es: "Máster en Administración de Empresas.",
+      en: "Master of Business Administration. In progress.",
+      es: "Máster en Administración de Empresas. En curso.",
     } satisfies L,
   },
   {
     name: { en: "B.S. Mechanical Engineering", es: "Ing. Mecánica" } satisfies L,
     org: "UTEC - Universidad de Ingeniería y Tecnología, Lima",
-    year: "", // FALTA
+    year: "2016 - 2021",
     note: { en: "", es: "" } satisfies L,
   },
 ];
