@@ -17,9 +17,13 @@ export const person = {
   // null = no se muestra el enlace.
   github: "https://github.com/atausinchi0411" as string | null,
   linkedin: "https://www.linkedin.com/in/piero-atausinchi/" as string | null,
-  // Se genera con `python tools/generar-cv.py`, que es donde vive el
-  // contenido. No edites el PDF a mano: se regenera y pierdes el cambio.
-  cv: "/Piero_Atausinchi_CV.pdf" as string | null,
+  // Los dos se generan con `python tools/generar-cv.py`, que es donde vive el
+  // contenido. No edites los PDF a mano: se regeneran y pierdes el cambio.
+  // null en los dos = no se muestra el botón de descarga.
+  cv: {
+    en: "/Piero_Atausinchi_CV_EN.pdf",
+    es: "/Piero_Atausinchi_CV_ES.pdf",
+  } as L | null,
   // El nombre lleva año a propósito: Next y el CDN de Vercel cachean la imagen
   // optimizada por URL, así que sustituir el archivo sin cambiar la ruta deja
   // la foto vieja servida durante horas. Al cambiar de foto, cambia el nombre.
@@ -62,57 +66,6 @@ export const heroMetrics = [
   { value: "6", label: { en: "years in engineering", es: "años en ingeniería" } },
   { value: "3", label: { en: "countries worked in", es: "países trabajados" } },
 ];
-
-/* ============================================================
-   SOBRE MÍ
-   Los tres principios no son eslóganes: cada uno está demostrado por un
-   caso de esta misma página. Si cambias uno, comprueba que el proyecto que
-   lo respalda sigue estando.
-   ============================================================ */
-
-export const about = {
-  lead: {
-    en: "I came to reliability from the shop floor, not from a dashboard.",
-    es: "Llegué a la fiabilidad desde el taller, no desde un cuadro de mando.",
-  } satisfies L,
-  body: [
-    {
-      en: "I am a mechanical engineer with an MBA. I have modelled pump rooms in Lima, coordinated a thirteen-person project team, and now I keep a mining fleet running underground near Barcelona. Three countries, and the same job underneath all of them: work out why something stops, and make it stop less.",
-      es: "Soy ingeniero mecánico con un MBA. He modelado salas de máquinas en Lima, coordinado un equipo de proyecto de trece personas, y ahora mantengo en marcha una flota minera bajo tierra cerca de Barcelona. Tres países, y el mismo trabajo debajo de todos: averiguar por qué algo se para, y conseguir que se pare menos.",
-    },
-    {
-      en: "The software came second, and it came out of frustration. You cannot analyse failures on data that lives in three people's memory. So I started building the tools that were missing, and it turned out I liked that part as much as the mechanical one. Everything on this page came from that: a real problem in front of me, and nobody with time to solve it.",
-      es: "El software vino después, y vino de la frustración. No puedes analizar fallos sobre datos que viven en la memoria de tres personas. Así que empecé a construir las herramientas que faltaban, y resultó que esa parte me gustaba tanto como la mecánica. Todo lo de esta página salió de ahí: un problema real delante, y nadie con tiempo de resolverlo.",
-    },
-  ] satisfies L[],
-  principles: [
-    {
-      title: { en: "Start from the problem that already exists", es: "Empiezo por el problema que ya existe" },
-      text: {
-        en: "Most of the time saved in a maintenance department is not won with a new system. It is won by removing the manual steps between the systems already in place.",
-        es: "La mayor parte del tiempo que se gana en un departamento de mantenimiento no viene de un sistema nuevo. Viene de eliminar los pasos manuales entre los que ya están.",
-      },
-      /** Caso que lo demuestra. */
-      proof: "cierre-masivo-ordenes-sap",
-    },
-    {
-      title: { en: "Ship it to the people who use it, then rewrite it", es: "Lo pongo delante de quien lo usa, y luego lo reescribo" },
-      text: {
-        en: "Four versions to get to something the department runs its shift on. Each one answered the question the previous one raised.",
-        es: "Cuatro versiones hasta llegar a algo sobre lo que el departamento organiza el turno. Cada una respondía la pregunta que dejaba abierta la anterior.",
-      },
-      proof: "nexo-ibp",
-    },
-    {
-      title: { en: "If the data cannot leave, it does not leave", es: "Si el dato no puede salir, no sale" },
-      text: {
-        en: "I rebuilt a working product's entire data layer rather than keep mine operations data on an external platform. Constraints are part of the spec, not an obstacle to it.",
-        es: "Reconstruí entera la capa de datos de un producto que ya funcionaba antes que dejar datos de operación de una mina en una plataforma externa. Las restricciones son parte del encargo, no un obstáculo.",
-      },
-      proof: "nexo-ibp",
-    },
-  ],
-};
 
 /* ============================================================
    PROYECTOS

@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { about, experience, languages, person, projects, skills, studies } from "@/content/site";
+import { experience, languages, person, projects, skills, studies } from "@/content/site";
 import { ui, useLocale } from "@/lib/i18n";
 import { LeadProject, ProjectCards, ProjectIndex } from "./ProjectGrid";
 import { Reveal } from "./Reveal";
@@ -175,79 +173,6 @@ export function SkillsSection() {
   );
 }
 
-/* ------------------------------------------------------------- Sobre mí */
-
-export function AboutSection() {
-  const { t } = useLocale();
-
-  return (
-    <section id="about" className="section">
-      <div className="wrap">
-        <SectionHead n="04" title={t(ui.about)} />
-
-        <div className={s.aboutTop}>
-          <Reveal className={s.aboutPortrait}>
-            {person.photo && (
-              <Image
-                src={person.photo}
-                alt={`${person.name} ${person.lastName}`}
-                width={896}
-                height={1200}
-                sizes="(max-width: 860px) calc(100vw - 40px), 320px"
-                quality={90}
-                className={s.aboutPhoto}
-              />
-            )}
-            <p className={`mono ${s.aboutWhere}`}>{t(person.location)}</p>
-          </Reveal>
-
-          <Reveal delay={90} className={s.aboutText}>
-            <p className={s.aboutLead}>{t(about.lead)}</p>
-            {about.body.map((para) => (
-              <p key={para.en} className={s.aboutPara}>
-                {t(para)}
-              </p>
-            ))}
-          </Reveal>
-        </div>
-
-        {/* Cada principio enlaza al caso que lo demuestra. Sin el enlace esto
-            sería una lista de frases bonitas, que es justo lo que no queremos. */}
-        <div className={s.subHead}>
-          <span className="eyebrow">{t(ui.howIWork)}</span>
-        </div>
-
-        <ol className={s.principles}>
-          {about.principles.map((principle, i) => {
-            const proof = projects.find((pr) => pr.slug === principle.proof);
-            return (
-              <Reveal
-                key={principle.proof + principle.title.en}
-                as="li"
-                delay={i * 80}
-                className={s.principle}
-              >
-                <span className={`mono ${s.principleNum}`}>{String(i + 1).padStart(2, "0")}</span>
-                <h3 className={s.principleTitle}>{t(principle.title)}</h3>
-                <p className={s.principleText}>{t(principle.text)}</p>
-                {proof && (
-                  <Link href={`/work/${proof.slug}`} className={`arrowLink ${s.principleProof}`}>
-                    {t(ui.seeProof)} {proof.title}
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                      <title>ir al caso</title>
-                      <path d="M5 12h13M12 5l7 7-7 7" />
-                    </svg>
-                  </Link>
-                )}
-              </Reveal>
-            );
-          })}
-        </ol>
-      </div>
-    </section>
-  );
-}
-
 /* ------------------------------------------------------------- Contacto */
 
 export function ContactSection() {
@@ -262,7 +187,7 @@ export function ContactSection() {
   return (
     <section id="contact" className="section">
       <div className="wrap">
-        <SectionHead n="05" title={t(ui.contact)} />
+        <SectionHead n="04" title={t(ui.contact)} />
 
         <p className={`lead ${s.contactLead}`}>{t(ui.contactLead)}</p>
 
@@ -274,7 +199,7 @@ export function ContactSection() {
             <p className={s.laneText}>{t(ui.laneHiringText)}</p>
             <div className={s.laneActions}>
               {person.cv ? (
-                <a href={person.cv} className={s.lanePrimary} download>
+                <a href={t(person.cv)} className={s.lanePrimary} download>
                   {t(ui.downloadCv)}
                 </a>
               ) : (

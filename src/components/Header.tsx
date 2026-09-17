@@ -115,7 +115,6 @@ export function Header() {
   const nav = [
     { id: "work", label: t(ui.work) },
     { id: "experience", label: t(ui.experience) },
-    { id: "about", label: t(ui.about) },
     { id: "contact", label: t(ui.contact) },
   ];
 

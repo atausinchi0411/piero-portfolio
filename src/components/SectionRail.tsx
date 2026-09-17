@@ -46,7 +46,6 @@ export function SectionRail() {
     work: t(ui.work),
     experience: t(ui.experience),
     skills: t(ui.skills),
-    about: t(ui.about),
     contact: t(ui.contact),
   };
 

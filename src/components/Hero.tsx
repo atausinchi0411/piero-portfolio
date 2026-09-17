@@ -28,7 +28,7 @@ export function Hero() {
             {t(ui.contact)}
           </a>
           {person.cv && (
-            <a href={person.cv} className={s.secondary} download>
+            <a href={t(person.cv)} className={s.secondary} download>
               {t(ui.downloadCv)}
             </a>
           )}

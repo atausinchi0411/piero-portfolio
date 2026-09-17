@@ -52,4 +52,4 @@ export function useActiveSection(ids: readonly string[]) {
 }
 
 /** Orden real de las secciones en la página. Fuente única. */
-export const SECTIONS = ["work", "experience", "skills", "about", "contact"] as const;
+export const SECTIONS = ["work", "experience", "skills", "contact"] as const;

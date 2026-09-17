@@ -63,7 +63,6 @@ export const useLocale = () => useContext(LocaleContext);
 /** Copia de interfaz que no vive en el archivo de contenido. */
 export const ui = {
   work: { en: "Work", es: "Proyectos" },
-  about: { en: "About", es: "Sobre mí" },
   contact: { en: "Contact", es: "Contacto" },
   experience: { en: "Experience", es: "Experiencia" },
   skills: { en: "Skills", es: "Habilidades" },
@@ -88,9 +87,6 @@ export const ui = {
     en: "If any of this looks like a problem you have, write to me. I read everything.",
     es: "Si algo de esto se parece a un problema que tienes, escríbeme. Lo leo todo.",
   },
-  // Sobre mí
-  howIWork: { en: "How I work", es: "Cómo trabajo" },
-  seeProof: { en: "See it in", es: "Se ve en" },
   // Contacto: dos vías, porque llegan dos tipos de visitante y no quieren
   // lo mismo. Mezclarlas hace que ninguno encuentre lo suyo.
   laneHiring: { en: "If you are hiring", es: "Si estás contratando" },

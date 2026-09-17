@@ -24,6 +24,9 @@ const nextConfig = {
       { source: "/blog/:path*", destination: "/", permanent: true },
       { source: "/gallery", destination: "/", permanent: true },
       { source: "/gallery/:path*", destination: "/", permanent: true },
+      // El CV estuvo un rato en una ruta sin sufijo de idioma.
+      { source: "/Piero_Atausinchi_CV.pdf",
+        destination: "/Piero_Atausinchi_CV_ES.pdf", permanent: true },
     ];
   },
 
