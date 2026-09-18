@@ -12,10 +12,12 @@ export function Hero() {
   return (
     <section className={`wrap ${s.hero}`}>
       <div className={s.main}>
-        <p className={s.status}>
-          <span className={s.pulse} aria-hidden="true" />
-          <span className="mono">{t(person.available)}</span>
-        </p>
+        {person.available && (
+          <p className={s.status}>
+            <span className={s.pulse} aria-hidden="true" />
+            <span className="mono">{t(person.available)}</span>
+          </p>
+        )}
 
         <h1 className={s.headline}>{t(hero.headline)}</h1>
         <p className={`lead ${s.sub}`}>{t(hero.sub)}</p>

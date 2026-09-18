@@ -48,7 +48,7 @@ cover: null                                                 // hueco honesto
 
 | kind | Para qué | Quién lo usa hoy |
 |---|---|---|
-| `shot` | Hay pantalla real que enseñar | NexoIBP, Apto, Tracker, Kuestiona |
+| `shot` | Hay pantalla real que enseñar | Nexo, Apto, Tracker, Kuestiona |
 | `flow` | Análisis: N fuentes que se cruzan | AQUATERMICA |
 | `steps` | Automatización: bucle manual que colapsa | Cierre masivo en SAP |
 | `audio` | Música | Late Night Jazz |

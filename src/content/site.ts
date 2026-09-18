@@ -31,15 +31,15 @@ export const person = {
   // optimizada por URL, así que sustituir el archivo sin cambiar la ruta deja
   // la foto vieja servida durante horas. Al cambiar de foto, cambia el nombre.
   photo: "/me/piero-2026.jpg" as string | null,
-  available: {
-    en: "Open to roles in data & automation across Europe",
-    es: "Abierto a posiciones de datos y automatización en Europa",
-  } satisfies L,
+  // null = no se muestra la etiqueta encima del titular. Para volver a mostrarla:
+  //   { en: "Open to roles in data & automation across Europe",
+  //     es: "Abierto a posiciones de datos y automatización en Europa" }
+  available: null as L | null,
 };
 
 export const hero = {
   // Historial de esta frase, para que nadie repita los errores:
-  //  - "el software que lo predice" prometía predicción. NexoIBP calcula
+  //  - "el software que lo predice" prometía predicción. Nexo calcula
   //    disponibilidad, MTTF y MTTR y clasifica máquinas: eso es análisis.
   //  - "el software que usa mi departamento lo escribí yo" y "herramientas
   //    que la gente usa de verdad" discutían con un escéptico que no está en
@@ -52,7 +52,7 @@ export const hero = {
   // Decir que no viene de programación es honesto y le protege en una
   // entrevista. Se dice con las palabras exactas y sin el término "vibe
   // coder", que en el sector se lee como "entrega código que no entiende" —
-  // y eso descontaría NexoIBP entero, que es el activo más fuerte de aquí.
+  // y eso descontaría Nexo entero, que es el activo más fuerte de aquí.
   sub: {
     en: "Reliability engineer at an underground mine near Barcelona. I did not come from software: I learned by building what my department needed, with AI as the tool and the problem in front of me.",
     es: "Ingeniero de fiabilidad en una mina subterránea cerca de Barcelona. No vengo de la programación: aprendí construyendo lo que mi departamento necesitaba, con la IA como herramienta y el problema delante.",
@@ -66,8 +66,8 @@ export const hero = {
 
 export const projects: Project[] = [
   {
-    slug: "nexo-ibp",
-    title: "NexoIBP",
+    slug: "nexo",
+    title: "Nexo",
     year: "2025",
     featured: true,
     summary: {
@@ -82,7 +82,7 @@ export const projects: Project[] = [
     cover: {
       kind: "shot",
       src: "/screenshots/nexo-analisis-fiabilidad.png",
-      chrome: "NexoIBP — Análisis de Fiabilidad",
+      chrome: "Nexo — Análisis de Fiabilidad",
     },
     href: null,
     privateNote: {
@@ -93,8 +93,8 @@ export const projects: Project[] = [
       {
         kind: "p",
         text: {
-          en: "The maintenance department ran on manual records and shared Excel files. Which meant, in practice, no data: nothing queryable, nothing comparable across shifts, nothing you could put a trend line through. Answering what happened last Tuesday meant asking three people and trusting their memory. NexoIBP exists to close that gap.",
-          es: "El mantenimiento funcionaba con registros manuales y Excels compartidos. Que en la práctica significa: sin datos. Nada consultable, nada comparable entre turnos, nada a lo que trazarle una tendencia. Responder qué pasó el martes era preguntar a tres personas y fiarte de su memoria. NexoIBP existe para cerrar ese hueco.",
+          en: "The maintenance department ran on manual records and shared Excel files. Which meant, in practice, no data: nothing queryable, nothing comparable across shifts, nothing you could put a trend line through. Answering what happened last Tuesday meant asking three people and trusting their memory. Nexo exists to close that gap.",
+          es: "El mantenimiento funcionaba con registros manuales y Excels compartidos. Que en la práctica significa: sin datos. Nada consultable, nada comparable entre turnos, nada a lo que trazarle una tendencia. Responder qué pasó el martes era preguntar a tres personas y fiarte de su memoria. Nexo existe para cerrar ese hueco.",
         },
       },
       { kind: "h", text: { en: "It grew into itself", es: "Fue creciendo hasta ser lo que es" } },
@@ -108,7 +108,7 @@ export const projects: Project[] = [
       {
         kind: "shot",
         src: "/screenshots/nexo-estado-maquinaria.png",
-        chrome: "NexoIBP — Estado de Maquinaria",
+        chrome: "Nexo — Estado de Maquinaria",
         caption: {
           en: "The whole fleet in one screen, grouped by category. Colour is the state, the number underneath is how long it has been in it. This is the screen the shift opens on.",
           es: "Toda la flota en una pantalla, agrupada por categoría. El color es el estado y el número de abajo cuánto lleva así. Es la pantalla con la que arranca el turno.",
@@ -154,7 +154,7 @@ export const projects: Project[] = [
       {
         kind: "shot",
         src: "/screenshots/nexo-analisis-fiabilidad.png",
-        chrome: "NexoIBP — Análisis de Fiabilidad",
+        chrome: "Nexo — Análisis de Fiabilidad",
         caption: {
           en: "Reliability view: the most reliable, most critical and most repeat-offending machine, then every machine ranked by availability, MTTF and MTTR. The timeline comparator shows why two trucks with similar fault counts are not the same problem.",
           es: "Vista de fiabilidad: la máquina más fiable, la más crítica y la más reincidente, y debajo toda la flota ordenada por disponibilidad, MTTF y MTTR. El comparador de líneas de tiempo enseña por qué dos camiones con el mismo número de averías no son el mismo problema.",
@@ -163,7 +163,7 @@ export const projects: Project[] = [
       {
         kind: "shot",
         src: "/screenshots/nexo-ranking-fiabilidad.png",
-        chrome: "NexoIBP — Ranking de Fiabilidad",
+        chrome: "Nexo — Ranking de Fiabilidad",
         caption: {
           en: "The ranking sorts the whole fleet and puts each machine in a quadrant: reliable, chronic, or one-off impact. A truck that fails five times for an hour each is a different decision from one that fails once for ten days, even though both show up as downtime.",
           es: "El ranking ordena toda la flota y mete cada máquina en un cuadrante: fiable, crónica o de impacto puntual. Un camión que falla cinco veces una hora es una decisión distinta a uno que falla una vez diez días, aunque los dos aparezcan como parada.",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
       {
         kind: "shot",
         src: "/screenshots/nexo-turnos.png",
-        chrome: "NexoIBP — Control de Turnos",
+        chrome: "Nexo — Control de Turnos",
         caption: {
           en: "Shift control. Open, partial, closed and non-working days, so it is obvious at a glance which handoffs are still missing.",
           es: "Control de turnos. Abierto, parcial, cerrado y días no laborables, para que se vea de un vistazo qué relevos siguen sin cerrar.",
@@ -681,8 +681,8 @@ export const experience: Experience[] = [
             es: "Sigo MTBF, MTTR y tendencias de parada para mantener las decisiones de mantenimiento sobre datos y no sobre instinto.",
           },
           {
-            en: "Built NexoIBP, the internal web app that replaces manual records and shared spreadsheets for machine status, shift handover and reliability reporting. Currently in rollout.",
-            es: "Construí NexoIBP, la aplicación web interna que sustituye registros manuales y Excels compartidos para estado de máquina, relevo de turno e informes de fiabilidad. Actualmente en despliegue.",
+            en: "Built Nexo, the internal web app that replaces manual records and shared spreadsheets for machine status, shift handover and reliability reporting. Currently in rollout.",
+            es: "Construí Nexo, la aplicación web interna que sustituye registros manuales y Excels compartidos para estado de máquina, relevo de turno e informes de fiabilidad. Actualmente en despliegue.",
           },
           {
             en: "Automated bulk closing of maintenance orders in SAP, removing an afternoon of manual clicking from the weekly routine.",
@@ -916,22 +916,22 @@ export const skills: SkillGroup[] = [
   {
     title: { en: "Data & Analysis", es: "Datos y análisis" },
     context: {
-      en: "Turning manual records into something you can query. This is what made NexoIBP possible.",
-      es: "Convertir registros manuales en algo consultable. Es lo que hizo posible NexoIBP.",
+      en: "Turning manual records into something you can query. This is what made Nexo possible.",
+      es: "Convertir registros manuales en algo consultable. Es lo que hizo posible Nexo.",
     },
     items: ["Python", "pandas", "SQL Server", "Excel/VBA", "Power Automate", "ArcMap / GIS"],
   },
   {
     title: { en: "Web", es: "Web" },
     context: {
-      en: "The stack behind NexoIBP, and behind tools that had to run on locked-down office PCs.",
-      es: "El stack detrás de NexoIBP, y de herramientas que debían correr en PCs corporativos restringidos.",
+      en: "The stack behind Nexo, and behind tools that had to run on locked-down office PCs.",
+      es: "El stack detrás de Nexo, y de herramientas que debían correr en PCs corporativos restringidos.",
     },
     items: ["React", "Vite", "Node.js", "TypeScript", "Vanilla JS", "HTML/CSS"],
   },
   {
     // Quité "Windows Auth SSO" e "IIS/PM2": no los pude confirmar en el código de
-    // NexoIBP (usa login propio por roles). Si los usas en otra app, dímelo y vuelven.
+    // Nexo (usa login propio por roles). Si los usas en otra app, dímelo y vuelven.
     title: { en: "Infrastructure", es: "Infraestructura" },
     context: {
       en: "Moving a working product onto company servers without the team noticing the change.",
