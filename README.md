@@ -159,10 +159,13 @@ La elección se guarda en `localStorage` y se aplica antes del primer paint.
 npx vercel --prod
 ```
 
-Sale del directorio de trabajo, no de git. El repo `atausinchi0411/piero-portfolio`
-está **desconectado** del proyecto de Vercel a propósito: todavía contiene la
-plantilla vieja, y conectado habría reconstruido el sitio desde ella en el primer
-push. Si algún día lo reconectas, sube antes este proyecto a ese repo.
+Sale del directorio de trabajo, no de git. El código vive en
+`github.com/atausinchi0411/piero-portfolio` (rama `main`), pero ese repo está
+**desconectado** del proyecto de Vercel: un push no despliega. Se despliega a
+mano, cuando se decide.
+
+La historia de la plantilla anterior sigue dentro del repo, como segundo padre
+del merge que la sustituyó. No se borró con un push forzado.
 
 Para comprobar que el build pasa sin tumbar un dev server abierto:
 
