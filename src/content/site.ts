@@ -88,6 +88,7 @@ export const projects: Project[] = [
     // La demo se sirve en la web, pero sus archivos no están en el repo:
     // public/demos/nexo va en .gitignore. Ver README, "Demos".
     demo: { src: "/demos/nexo/index.html" },
+    sampleData: true,
     privateNote: {
       en: "The real app lives inside the company network and is in rollout with a first group of testers. The demo and the screenshots run on the same interface with invented data: real machine codes, notes and names never leave the site.",
       es: "La app real vive dentro de la red de la empresa y está en despliegue con un primer grupo de testers. La demo y las capturas usan la misma interfaz con datos inventados: los códigos de máquina, notas y nombres reales no salen de la mina.",
@@ -431,6 +432,7 @@ export const projects: Project[] = [
     cover: { kind: "shot", src: "/screenshots/tracker-mes.png", chrome: "Finance Tracker — Mes" },
     href: null,
     demo: { src: "/demos/finance/index.html", viewport: "phone" },
+    sampleData: true,
     privateNote: {
       en: "The demo and the screenshots use invented figures. The version I use has my own numbers in it.",
       es: "La demo y las capturas usan cifras inventadas. La versión que uso tiene mis propios números.",

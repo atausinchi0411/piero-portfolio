@@ -8,6 +8,13 @@ import { DemoButton } from "./Demo";
 import { Reveal } from "./Reveal";
 import s from "./ProjectGrid.module.css";
 
+/** Aviso sobre la captura: los números que se ven no son de la empresa. */
+function SampleBadge({ project }: { project: Project }) {
+  const { t } = useLocale();
+  if (!project.sampleData) return null;
+  return <span className={`mono ${s.sample}`}>{t(ui.sampleData)}</span>;
+}
+
 function Arrow({ size = 13 }: { size?: number }) {
   return (
     <svg
@@ -85,6 +92,7 @@ export function LeadProject({ project }: { project: Project }) {
             fill
             priority
           />
+          <SampleBadge project={project} />
         </div>
       </article>
     </Reveal>
@@ -100,11 +108,14 @@ function Card({ project, n, delay }: { project: Project; n: number; delay: numbe
     <Reveal delay={delay}>
       <article className={s.card}>
         {/* Dos columnas de 1100 con 22 de gap, menos 30 de padding → 520px. */}
-        <Cover
-          cover={project.cover}
-          title={project.title}
-          sizes="(max-width: 620px) calc(100vw - 70px), (max-width: 1180px) calc(50vw - 60px), 520px"
-        />
+        <div className={s.cardCover}>
+          <Cover
+            cover={project.cover}
+            title={project.title}
+            sizes="(max-width: 620px) calc(100vw - 70px), (max-width: 1180px) calc(50vw - 60px), 520px"
+          />
+          <SampleBadge project={project} />
+        </div>
 
         <div className={s.meta}>
           <p className={s.leadTop}>

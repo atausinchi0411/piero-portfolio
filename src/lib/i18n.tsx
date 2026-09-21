@@ -84,6 +84,7 @@ export const ui = {
   coverAudio: { en: "Audio", es: "Audio" },
   privateProject: { en: "Private", es: "Privado" },
   tryIt: { en: "Try it", es: "Pruébalo" },
+  sampleData: { en: "Invented data", es: "Datos inventados" },
   demoNote: {
     en: "Live demo · invented data · nothing leaves your browser",
     es: "Demo en vivo · datos inventados · nada sale de tu navegador",

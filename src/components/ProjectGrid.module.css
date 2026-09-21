@@ -101,7 +101,26 @@
   padding-top: 8px;
 }
 
-.leadCover { min-width: 0; }
+.leadCover { position: relative; min-width: 0; }
+.cardCover { position: relative; }
+
+/* Sello sobre la captura. Abajo a la derecha: arriba taparía la barra de la
+   ventana, que es la que dice qué pantalla es. */
+.sample {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 1;
+  padding: 4px 9px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  color: #fff;
+  background: rgba(22, 22, 26, .78);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
 
 /* ----------------------------------------------------------------- cards */
 

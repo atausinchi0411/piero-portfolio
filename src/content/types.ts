@@ -69,6 +69,8 @@ export type Project = {
    * escritorio, para las apps que se diseñaron para el teléfono.
    */
   demo?: { src: string; viewport?: "desktop" | "phone" };
+  /** La portada y la demo enseñan datos inventados: se avisa encima. */
+  sampleData?: boolean;
   body: Block[];
 };
 
