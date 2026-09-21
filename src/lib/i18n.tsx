@@ -86,8 +86,8 @@ export const ui = {
   tryIt: { en: "Try it", es: "Pruébalo" },
   sampleData: { en: "Invented data", es: "Datos inventados" },
   sampleDataLine: {
-    en: "The screenshot and the demo run on invented data. Nothing here comes from the company.",
-    es: "La captura y la demo usan datos inventados. Nada de lo que ves sale de la empresa.",
+    en: "Disclaimer: the screenshot and the demo use reference data to protect the company's privacy.",
+    es: "Disclaimer: la captura y la demo son con datos de referencia por privacidad de la empresa.",
   },
   demoNote: {
     en: "Live demo · invented data · nothing leaves your browser",
