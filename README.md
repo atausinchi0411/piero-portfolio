@@ -144,6 +144,11 @@ carpeta, se rehace desde `../nexo-demo/app`:
 - en el JS principal: `basename:"/demos/nexo"` en el enrutador, y
   "Nexo IBP" → "Nexo", "Contraseña ICL" → "Contraseña";
 - `mock-api.js` es el generador de `servidor-demo.js` interceptando `fetch`.
+- en el JS principal, el comparador de máquinas arranca con
+  `T.useState(()=>window.__nexoDemoCompare||[])` en vez de `useState([])`;
+  `mock-api.js` define qué máquinas trae;
+- `tour.js` es la guía de 6 pasos. Encuentra los elementos por su texto
+  visible y habla el idioma que le pasa el portfolio (`?lang=en|es`).
 
 `next.config.mjs` reescribe `/demos/nexo/*` a su `index.html` para que recargar
 dentro de la demo no dé 404.

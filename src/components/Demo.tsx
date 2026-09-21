@@ -21,7 +21,7 @@ type Props = {
  * Va en un <dialog> nativo: Esc, foco atrapado y capa superior sin librerías.
  */
 export function DemoButton({ project, size = "card" }: Props) {
-  const { t } = useLocale();
+  const { t, locale } = useLocale();
   const ref = useRef<HTMLDialogElement>(null);
   const [opened, setOpened] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -41,6 +41,9 @@ export function DemoButton({ project, size = "card" }: Props) {
   }, []);
 
   if (!demo) return null;
+
+  // La guía de la demo habla el idioma del portfolio.
+  const src = `${demo.src}?lang=${locale}`;
 
   const open = () => {
     setOpened(true);
@@ -80,7 +83,7 @@ export function DemoButton({ project, size = "card" }: Props) {
             </span>
             <span className={s.title}>{project.title}</span>
             <span className={`mono ${s.note}`}>{t(ui.demoNote)}</span>
-            <a href={demo.src} target="_blank" rel="noreferrer" className={s.newTab}>
+            <a href={src} target="_blank" rel="noreferrer" className={s.newTab}>
               {t(ui.demoNewTab)}
             </a>
             <button
@@ -101,7 +104,7 @@ export function DemoButton({ project, size = "card" }: Props) {
             {!loaded && <p className={`mono ${s.loading}`}>{t(ui.demoLoading)}</p>}
             {opened && (
               <iframe
-                src={demo.src}
+                src={src}
                 title={`${project.title} — demo`}
                 className={s.frame}
                 onLoad={() => setLoaded(true)}
