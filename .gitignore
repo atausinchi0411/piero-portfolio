@@ -10,3 +10,7 @@ next-env.d.ts
 
 .vercel
 .env*
+
+# La demo de Nexo se publica en la web pero no en el repo: es la build de una
+# app de la empresa. Se despliega desde local (ver .vercelignore y README).
+/public/demos/nexo/

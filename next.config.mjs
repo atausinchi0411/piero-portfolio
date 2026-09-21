@@ -32,6 +32,16 @@ const nextConfig = {
     ];
   },
 
+  /**
+   * Nexo es una app de una sola página con rutas propias (/demos/nexo/...).
+   * Si alguien recarga dentro de la demo, la ruta no existe como archivo:
+   * se le devuelve la app y ella misma pinta la pantalla. Van después de
+   * mirar /public, así que los archivos de verdad se sirven tal cual.
+   */
+  async rewrites() {
+    return [{ source: "/demos/nexo/:path*", destination: "/demos/nexo/index.html" }];
+  },
+
   // Permite compilar a otro directorio sin pisar el .next de un dev server
   // que esté corriendo: NEXT_DIST_DIR=.next-check npm run build
   ...(process.env.NEXT_DIST_DIR ? { distDir: process.env.NEXT_DIST_DIR } : {}),

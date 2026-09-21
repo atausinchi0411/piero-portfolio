@@ -118,7 +118,7 @@ Vercel use su propia `VERCEL_URL`.
 
 ## Demos — "Pruébalo"
 
-Apto y Finance Tracker se pueden usar dentro del portfolio. El botón
+Nexo, Apto y Finance Tracker se pueden usar dentro del portfolio. El botón
 abre la app en un `<dialog>` con un iframe; la app no se descarga hasta que
 alguien pulsa. Un proyecto tiene demo si declara `demo: { src }` en
 `src/content/site.ts` (`viewport: "phone"` la enseña a ancho de móvil).
@@ -133,9 +133,20 @@ Los archivos viven en `public/demos/`:
 
 Lo que el visitante toca se queda en su navegador.
 
-**Nexo no tiene demo pública, a propósito.** Una demo en el navegador entrega
-el código de la app al visitante, y Nexo es de la empresa. Se enseña en
-entrevista con `../nexo-demo` corriendo en local (`node servidor-demo.js`).
+**Nexo: demo en la web, archivos fuera del repo.** La build de Nexo es de la
+empresa, así que `public/demos/nexo/` está en `.gitignore` y solo existe en
+local. `.vercelignore` está para que el despliegue desde local la suba igual
+(sin él, Vercel usaría `.gitignore` y la demo daría 404). Si se pierde la
+carpeta, se rehace desde `../nexo-demo/app`:
+
+- copiar `assets/` y crear `index.html` con rutas relativas que cargue
+  `mock-api.js` antes de la app;
+- en el JS principal: `basename:"/demos/nexo"` en el enrutador, y
+  "Nexo IBP" → "Nexo", "Contraseña ICL" → "Contraseña";
+- `mock-api.js` es el generador de `servidor-demo.js` interceptando `fetch`.
+
+`next.config.mjs` reescribe `/demos/nexo/*` a su `index.html` para que recargar
+dentro de la demo no dé 404.
 
 ## Estructura
 

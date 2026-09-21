@@ -85,12 +85,12 @@ export const projects: Project[] = [
       chrome: "Nexo — Análisis de Fiabilidad",
     },
     href: null,
-    // Sin demo pública a propósito: una demo en el navegador entrega el
-    // código de la app, y la app es de la empresa. Se enseña en entrevista,
-    // en directo, con nexo-demo/ corriendo en local.
+    // La demo se sirve en la web, pero sus archivos no están en el repo:
+    // public/demos/nexo va en .gitignore. Ver README, "Demos".
+    demo: { src: "/demos/nexo/index.html" },
     privateNote: {
-      en: "Internal to the company network, so there is no public link, and it is currently in rollout with a first group of testers. Every screenshot here was taken from a demo build running on invented data — real machine codes, notes and names never leave the site.",
-      es: "Interno a la red de la empresa, así que no hay link público, y ahora mismo está en despliegue con un primer grupo de testers. Todas las capturas están tomadas de una versión demo con datos inventados: los códigos de máquina, notas y nombres reales no salen de la mina.",
+      en: "The real app lives inside the company network and is in rollout with a first group of testers. The demo and the screenshots run on the same interface with invented data: real machine codes, notes and names never leave the site.",
+      es: "La app real vive dentro de la red de la empresa y está en despliegue con un primer grupo de testers. La demo y las capturas usan la misma interfaz con datos inventados: los códigos de máquina, notas y nombres reales no salen de la mina.",
     },
     body: [
       {

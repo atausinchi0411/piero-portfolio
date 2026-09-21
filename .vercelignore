@@ -1,0 +1,8 @@
+# Existe para que Vercel NO use .gitignore al desplegar desde local:
+# public/demos/nexo está fuera de git a propósito, pero sí tiene que subirse.
+.git
+.next
+.next-check
+node_modules
+.env*
+.vercel
