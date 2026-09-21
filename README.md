@@ -116,6 +116,27 @@ las métricas, cambia la imagen. No hay que mantener un PNG a mano.
 En producción define `NEXT_PUBLIC_SITE_URL` con el dominio real, o deja que
 Vercel use su propia `VERCEL_URL`.
 
+## Demos — "Pruébalo"
+
+Apto y Finance Tracker se pueden usar dentro del portfolio. El botón
+abre la app en un `<dialog>` con un iframe; la app no se descarga hasta que
+alguien pulsa. Un proyecto tiene demo si declara `demo: { src }` en
+`src/content/site.ts` (`viewport: "phone"` la enseña a ancho de móvil).
+
+Los archivos viven en `public/demos/`:
+
+- **apto/** — `dist/index.html` de Apto. La fecha del examen por defecto es
+  "el jueves dentro de un mes", no una fecha fija.
+- **finance/** — copia del tracker con **todas las cifras y conceptos
+  inventados** y su propia clave de almacenamiento. Nunca copies aquí el
+  archivo que usas de verdad: lleva tus números dentro.
+
+Lo que el visitante toca se queda en su navegador.
+
+**Nexo no tiene demo pública, a propósito.** Una demo en el navegador entrega
+el código de la app al visitante, y Nexo es de la empresa. Se enseña en
+entrevista con `../nexo-demo` corriendo en local (`node servidor-demo.js`).
+
 ## Estructura
 
 ```

@@ -222,3 +222,6 @@ button { font: inherit; color: inherit; }
 @media (max-width: 640px) {
   :root { --gutter: 16px; }
 }
+
+/* Con una demo abierta, la página de detrás no se desplaza. */
+html.demoOpen { overflow: hidden; }

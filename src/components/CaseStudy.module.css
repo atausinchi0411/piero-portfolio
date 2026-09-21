@@ -32,6 +32,19 @@
   max-width: 60ch;
 }
 
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 14px;
+  margin-top: 22px;
+}
+
+.actionsNote {
+  font-size: 11.5px;
+  color: var(--ink-3);
+}
+
 /* ---------- Ficha técnica ---------- */
 .spec {
   display: grid;

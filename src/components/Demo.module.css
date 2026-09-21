@@ -1,0 +1,197 @@
+/* ---------- Botón ---------- */
+
+.button,
+.buttonPage {
+  position: relative;
+  z-index: 2; /* por encima del enlace que cubre la tarjeta */
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border-radius: 999px;
+  font-weight: 500;
+  color: var(--bg);
+  background: var(--signal);
+  border: 1px solid var(--signal);
+  cursor: pointer;
+  transition: transform .16s ease, background .16s ease, border-color .16s ease;
+}
+
+.button {
+  height: 30px;
+  padding-inline: 12px;
+  font-size: 12.5px;
+}
+
+.buttonPage {
+  height: 40px;
+  padding-inline: 18px;
+  font-size: 14px;
+}
+
+.button:hover,
+.buttonPage:hover {
+  transform: translateY(-1px);
+  background: var(--signal-ink);
+  border-color: var(--signal-ink);
+}
+
+.button:focus-visible,
+.buttonPage:focus-visible {
+  outline: 2px solid var(--signal);
+  outline-offset: 3px;
+}
+
+/* ---------- Ventana ---------- */
+
+.dialog {
+  width: min(1320px, calc(100vw - 40px));
+  height: min(880px, calc(100dvh - 40px));
+  max-width: none;
+  max-height: none;
+  margin: auto; /* el reset global quita el centrado nativo del <dialog> */
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+
+.dialog.phone {
+  width: min(430px, calc(100vw - 40px));
+  height: min(860px, calc(100dvh - 40px));
+}
+
+.dialog::backdrop {
+  background: rgba(12, 10, 8, .62);
+  backdrop-filter: blur(3px);
+}
+
+.dialog[open] { animation: pop .22s cubic-bezier(.2, .8, .2, 1); }
+.dialog[open]::backdrop { animation: fade .22s ease; }
+
+@keyframes pop {
+  from { opacity: 0; transform: translateY(10px) scale(.985); }
+  to { opacity: 1; transform: none; }
+}
+@keyframes fade { from { opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .dialog[open],
+  .dialog[open]::backdrop { animation: none; }
+}
+
+.window {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 6px 8px 6px 14px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface-2);
+}
+
+.lights {
+  display: flex;
+  gap: 6px;
+}
+.lights i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--line-strong);
+}
+
+.title {
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.note {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  font-size: 11.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.newTab {
+  font-size: 12.5px;
+  color: var(--ink-2);
+  white-space: nowrap;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--line-strong);
+}
+.newTab:hover { color: var(--signal); }
+
+.close {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border: 0;
+  border-radius: var(--r-md);
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+}
+.close:hover {
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.stage {
+  position: relative;
+  flex: 1;
+  background: #fff; /* las apps son claras: sin esto parpadea en modo oscuro */
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font-size: 12px;
+  color: #6b6b73;
+}
+
+.frame {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* En móvil la demo ocupa la pantalla entera: un marco dentro de otro no cabe. */
+@media (max-width: 640px) {
+  .dialog,
+  .dialog.phone {
+    width: 100vw;
+    height: 100dvh;
+    margin: 0;
+  }
+  .window {
+    border: 0;
+    border-radius: 0;
+  }
+  .lights,
+  .note,
+  .newTab { display: none; }
+  .title { flex: 1; }
+}

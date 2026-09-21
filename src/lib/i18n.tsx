@@ -83,6 +83,14 @@ export const ui = {
   coverProcess: { en: "Process", es: "Proceso" },
   coverAudio: { en: "Audio", es: "Audio" },
   privateProject: { en: "Private", es: "Privado" },
+  tryIt: { en: "Try it", es: "Pruébalo" },
+  demoNote: {
+    en: "Live demo · invented data · nothing leaves your browser",
+    es: "Demo en vivo · datos inventados · nada sale de tu navegador",
+  },
+  demoNewTab: { en: "Open in new tab", es: "Abrir en otra pestaña" },
+  demoClose: { en: "Close demo", es: "Cerrar demo" },
+  demoLoading: { en: "Loading demo…", es: "Cargando demo…" },
   contactLead: {
     en: "If any of this looks like a problem you have, write to me. I read everything.",
     es: "Si algo de esto se parece a un problema que tienes, escríbeme. Lo leo todo.",

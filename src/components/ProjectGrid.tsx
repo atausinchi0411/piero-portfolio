@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Project } from "@/content/types";
 import { ui, useLocale } from "@/lib/i18n";
 import { Cover } from "./Cover";
+import { DemoButton } from "./Demo";
 import { Reveal } from "./Reveal";
 import s from "./ProjectGrid.module.css";
 
@@ -35,14 +36,21 @@ export function LeadProject({ project }: { project: Project }) {
 
   return (
     <Reveal>
-      <Link href={`/work/${project.slug}`} className={s.lead}>
+      {/* La tarjeta entera se pulsa, pero no es un <a>: dentro va el botón de
+          la demo, y un botón dentro de un enlace no es HTML válido. El enlace
+          vive en el título y se estira sobre toda la tarjeta. */}
+      <article className={s.lead}>
         <div className={s.leadText}>
           <p className={s.leadTop}>
             <span className={`mono ${s.index}`}>01</span>
             <span className={`mono ${s.year}`}>{project.year}</span>
           </p>
 
-          <h3 className={s.leadTitle}>{project.title}</h3>
+          <h3 className={s.leadTitle}>
+            <Link href={`/work/${project.slug}`} className={s.stretch}>
+              {project.title}
+            </Link>
+          </h3>
           <p className={s.leadSummary}>{t(project.summary)}</p>
 
           <p className={s.leadMetric}>
@@ -58,10 +66,13 @@ export function LeadProject({ project }: { project: Project }) {
             ))}
           </div>
 
-          <span className={s.cta}>
-            {t(ui.readCase)}
-            <Arrow />
-          </span>
+          <div className={s.ctaRow}>
+            <span className={s.cta}>
+              {t(ui.readCase)}
+              <Arrow />
+            </span>
+            <DemoButton project={project} />
+          </div>
         </div>
 
         <div className={s.leadCover}>
@@ -75,7 +86,7 @@ export function LeadProject({ project }: { project: Project }) {
             priority
           />
         </div>
-      </Link>
+      </article>
     </Reveal>
   );
 }
@@ -87,7 +98,7 @@ function Card({ project, n, delay }: { project: Project; n: number; delay: numbe
 
   return (
     <Reveal delay={delay}>
-      <Link href={`/work/${project.slug}`} className={s.card}>
+      <article className={s.card}>
         {/* Dos columnas de 1100 con 22 de gap, menos 30 de padding → 520px. */}
         <Cover
           cover={project.cover}
@@ -101,7 +112,11 @@ function Card({ project, n, delay }: { project: Project; n: number; delay: numbe
             <span className={`mono ${s.year}`}>{project.year}</span>
           </p>
 
-          <h3 className={s.title}>{project.title}</h3>
+          <h3 className={s.title}>
+            <Link href={`/work/${project.slug}`} className={s.stretch}>
+              {project.title}
+            </Link>
+          </h3>
           <p className={s.summary}>{t(project.summary)}</p>
 
           <p className={s.cardMetric}>
@@ -121,11 +136,14 @@ function Card({ project, n, delay }: { project: Project; n: number; delay: numbe
           </div>
         </div>
 
-        <span className={s.cta}>
-          {t(ui.readCase)}
-          <Arrow />
-        </span>
-      </Link>
+        <div className={s.ctaRow}>
+          <span className={s.cta}>
+            {t(ui.readCase)}
+            <Arrow />
+          </span>
+          <DemoButton project={project} />
+        </div>
+      </article>
     </Reveal>
   );
 }
@@ -151,11 +169,16 @@ export function ProjectIndex({ projects, startAt }: { projects: Project[]; start
     <ol className={s.index_}>
       {projects.map((project, i) => (
         <Reveal key={project.slug} as="li" delay={i * 50}>
-          <Link href={`/work/${project.slug}`} className={s.row}>
+          <div className={s.row}>
             <span className={`mono ${s.rowNum}`}>{String(startAt + i).padStart(2, "0")}</span>
 
             <span className={s.rowMain}>
-              <span className={s.rowTitle}>{project.title}</span>
+              <span className={s.rowTitle}>
+                <Link href={`/work/${project.slug}`} className={s.stretch}>
+                  {project.title}
+                </Link>
+                <DemoButton project={project} />
+              </span>
               <span className={s.rowSummary}>{t(project.summary)}</span>
             </span>
 
@@ -171,7 +194,7 @@ export function ProjectIndex({ projects, startAt }: { projects: Project[]; start
             <span className={s.rowArrow}>
               <Arrow size={14} />
             </span>
-          </Link>
+          </div>
         </Reveal>
       ))}
     </ol>

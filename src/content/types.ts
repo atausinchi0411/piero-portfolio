@@ -63,6 +63,12 @@ export type Project = {
   href?: string | null;
   /** Por qué no hay link público. Honestidad > misterio. */
   privateNote?: L;
+  /**
+   * App que se puede usar dentro del portfolio, en un marco aislado.
+   * `src` apunta a public/demos. `phone` la enseña a ancho de móvil en
+   * escritorio, para las apps que se diseñaron para el teléfono.
+   */
+  demo?: { src: string; viewport?: "desktop" | "phone" };
   body: Block[];
 };
 

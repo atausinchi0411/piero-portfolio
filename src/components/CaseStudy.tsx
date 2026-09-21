@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { Project } from "@/content/types";
 import { ui, useLocale } from "@/lib/i18n";
 import { Cover } from "./Cover";
+import { DemoButton } from "./Demo";
 import { Sequence } from "./Sequence";
 import { Shot } from "./Shot";
 import s from "./CaseStudy.module.css";
@@ -24,6 +25,12 @@ export function CaseStudy({ project }: { project: Project }) {
         <p className="eyebrow">{t(project.context)}</p>
         <h1 className={s.title}>{project.title}</h1>
         <p className={`lead ${s.summary}`}>{t(project.summary)}</p>
+        {project.demo && (
+          <div className={s.actions}>
+            <DemoButton project={project} size="page" />
+            <span className={`mono ${s.actionsNote}`}>{t(ui.demoNote)}</span>
+          </div>
+        )}
       </header>
 
       {/* Ficha técnica: lo que un reclutador escanea en tres segundos. */}

@@ -85,6 +85,9 @@ export const projects: Project[] = [
       chrome: "Nexo — Análisis de Fiabilidad",
     },
     href: null,
+    // Sin demo pública a propósito: una demo en el navegador entrega el
+    // código de la app, y la app es de la empresa. Se enseña en entrevista,
+    // en directo, con nexo-demo/ corriendo en local.
     privateNote: {
       en: "Internal to the company network, so there is no public link, and it is currently in rollout with a first group of testers. Every screenshot here was taken from a demo build running on invented data — real machine codes, notes and names never leave the site.",
       es: "Interno a la red de la empresa, así que no hay link público, y ahora mismo está en despliegue con un primer grupo de testers. Todas las capturas están tomadas de una versión demo con datos inventados: los códigos de máquina, notas y nombres reales no salen de la mina.",
@@ -348,6 +351,7 @@ export const projects: Project[] = [
     metric: { value: "1", label: { en: "file, no dependencies", es: "archivo, sin dependencias" } },
     cover: { kind: "shot", src: "/screenshots/apto-inicio.png", chrome: "Apto — Inicio" },
     href: null,
+    demo: { src: "/demos/apto/index.html", viewport: "phone" },
     body: [
       {
         kind: "p",
@@ -426,9 +430,10 @@ export const projects: Project[] = [
     metric: { value: "5", label: { en: "versions, zero data loss", es: "versiones, cero pérdida de datos" } },
     cover: { kind: "shot", src: "/screenshots/tracker-mes.png", chrome: "Finance Tracker — Mes" },
     href: null,
+    demo: { src: "/demos/finance/index.html", viewport: "phone" },
     privateNote: {
-      en: "Screenshots use invented figures. The version I use has my own numbers in it.",
-      es: "Las capturas usan cifras inventadas. La versión que uso tiene mis propios números.",
+      en: "The demo and the screenshots use invented figures. The version I use has my own numbers in it.",
+      es: "La demo y las capturas usan cifras inventadas. La versión que uso tiene mis propios números.",
     },
     body: [
       {
