@@ -60,10 +60,16 @@ export function LeadProject({ project }: { project: Project }) {
           </h3>
           <p className={s.leadSummary}>{t(project.summary)}</p>
 
-          <p className={s.leadMetric}>
-            <b className="mono">{project.metric.value}</b>
-            <span>{t(project.metric.label)}</span>
-          </p>
+          {/* Con datos inventados, el aviso ocupa el sitio del dato: es lo que
+              más importa que se lea antes de mirar la captura. */}
+          {project.sampleData ? (
+            <p className={s.sampleLine}>{t(ui.sampleDataLine)}</p>
+          ) : (
+            <p className={s.leadMetric}>
+              <b className="mono">{project.metric.value}</b>
+              <span>{t(project.metric.label)}</span>
+            </p>
+          )}
 
           <div className={s.tags}>
             {project.stack.map((tech) => (

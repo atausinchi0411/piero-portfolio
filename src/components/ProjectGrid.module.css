@@ -102,6 +102,15 @@
 }
 
 .leadCover { position: relative; min-width: 0; }
+
+.sampleLine {
+  margin: 0;
+  padding-left: 10px;
+  border-left: 2px solid var(--signal);
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-2);
+}
 .cardCover { position: relative; }
 
 /* Sello sobre la captura. Abajo a la derecha: arriba taparía la barra de la

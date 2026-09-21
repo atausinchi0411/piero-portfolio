@@ -85,6 +85,10 @@ export const ui = {
   privateProject: { en: "Private", es: "Privado" },
   tryIt: { en: "Try it", es: "Pruébalo" },
   sampleData: { en: "Invented data", es: "Datos inventados" },
+  sampleDataLine: {
+    en: "The screenshot and the demo run on invented data. Nothing here comes from the company.",
+    es: "La captura y la demo usan datos inventados. Nada de lo que ves sale de la empresa.",
+  },
   demoNote: {
     en: "Live demo · invented data · nothing leaves your browser",
     es: "Demo en vivo · datos inventados · nada sale de tu navegador",
